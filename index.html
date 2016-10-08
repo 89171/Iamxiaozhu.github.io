@@ -145,6 +145,68 @@
       <div class="body-wrap">
         
   
+    <article id="post-flex布局详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/08/flex布局详解/">flex布局详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>flex布局由flex-container和flex-item组成.水平轴称为main axis 竖直轴称为cross axis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">display:flex;//flex布局</div><div class="line">display:inline-flex;//flex布局,元素变为行内容器,宽度是里面内容宽度</div></pre></td></tr></table></figure></p>
+<h4 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">flex-direction:row;//设置main axis 为行显示(默认)</div><div class="line">flex-direction:row-reverse;//倒序</div><div class="line">flex-direction:column;//竖直排列</div><div class="line">flex-direction:column-reverse;</div></pre></td></tr></table></figure>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-wrap:wrap;//换行(默认不换行)</div><div class="line">flex-wrap:wrap-reverse;</div></pre></td></tr></table></figure>
+<h4 id="同时设置方向和换行"><a href="#同时设置方向和换行" class="headerlink" title="同时设置方向和换行"></a>同时设置方向和换行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-flow: row nowrap;//默认</div></pre></td></tr></table></figure>
+<h4 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h4><h5 id="水平"><a href="#水平" class="headerlink" title="水平"></a>水平</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">justify-content:flex-start|center|flex-end|space-between|space-around;//space-between和space-around区别在于是否会在项目周围(左边和右边)产生间隔</div></pre></td></tr></table></figure>
+<h5 id="垂直"><a href="#垂直" class="headerlink" title="垂直"></a>垂直</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">align-items:stretch;//拉伸(默认)</div><div class="line">align-items:flex-start|flex-end|center|baseline;</div></pre></td></tr></table></figure>
+<h6 id="多行显示对齐"><a href="#多行显示对齐" class="headerlink" title="多行显示对齐"></a>多行显示对齐</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-content:stretch|flex-start|flex-end|center|space-between|space-around;</div></pre></td></tr></table></figure>
+<h4 id="改变子元素排列顺序"><a href="#改变子元素排列顺序" class="headerlink" title="改变子元素排列顺序"></a>改变子元素排列顺序</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">order:1;//默认0</div></pre></td></tr></table></figure>
+<h4 id="子元素宽度变化"><a href="#子元素宽度变化" class="headerlink" title="子元素宽度变化"></a>子元素宽度变化</h4><p>剩余宽度分配比例(子元素没有充满父元素宽度时)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-grow:0;//默认</div><div class="line">flex-grow:1;//分配剩余空间比例.数字越大宽度越大</div></pre></td></tr></table></figure></p>
+<p>子元素初始宽度<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-basic:auto;//默认</div><div class="line">flex-basic:30px;</div></pre></td></tr></table></figure></p>
+<p>缩小宽度比例(父元素宽度小于子元素宽度总和时)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-shrink:0;//不缩小，默认为1</div><div class="line">flex-shrink:3;//值越大宽度越小</div></pre></td></tr></table></figure></p>
+<h4 id="同时宽度变化"><a href="#同时宽度变化" class="headerlink" title="同时宽度变化"></a>同时宽度变化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex:flex-grow flex-shrink flex-basic;</div><div class="line">flex: 0 1 auto;//默认</div></pre></td></tr></table></figure>
+<h4 id="单独设置某个元素"><a href="#单独设置某个元素" class="headerlink" title="单独设置某个元素"></a>单独设置某个元素</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">align-self:auto;//默认</div><div class="line">align-self:flext-start|center|flex-end|stretch;//默认</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/08/flex布局详解/" class="archive-article-date">
+  	<time datetime="2016-10-08T08:30:30.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -282,7 +344,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				
+    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a>
     			</div>
     	</section>
     
