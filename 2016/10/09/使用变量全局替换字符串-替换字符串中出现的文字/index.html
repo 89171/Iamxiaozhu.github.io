@@ -18,7 +18,7 @@
 因为文字是动态变化的,所以这里有两种方法
 ###方法一使用split,join方法12345//将str中的a变量替换为b变量var a = &quot;1&quot;;var b = &quot;2&quot;;var str = &quot;1213141516171819&quot;;var newStr = str.split(a).join(b);//2223242526272829
 ###方">
-<meta property="og:updated_time" content="2016-10-10T11:15:40.710Z">
+<meta property="og:updated_time" content="2016-10-11T09:18:40.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用变量全局替换字符串,替换字符串中出现的文字">
 <meta name="twitter:description" content="最近遇到需求需要将字符串中的文本进行高亮显示,如图:
@@ -39,6 +39,20 @@
     <link rel="icon" href="/favicon.png">
   
   <script src="/style.js"></script>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 </head>
 
 <body>
@@ -172,7 +186,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近遇到需求需要将字符串中的文本进行高亮显示,如图:</p>
-<p><image src="css/img/nodereplace.png" width="300px"><br>因为文字是动态变化的,所以这里有两种方法</image></p>
+<p><image src="/css/img/nodereplace.png" width="300px"><br>因为文字是动态变化的,所以这里有两种方法</image></p>
 <p>###方法一<br>使用split,join方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.split(a).join(b);<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
 <p>###方法二<br>使用replace和正则表达式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(a,<span class="string">'gm'</span>),b)<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
 
