@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/17/使用RaphaelJS绘制曲线/index.html">
 <meta property="og:site_name" content="I am Xiaozhu">
 <meta property="og:description" content="RaphaelJS是一个SVG库,使用起来很方便,简单的代码就可以实现复杂的动画最近遇到一个功能,需要实现一条平滑的曲线.使用Raphael做一个线条变化动画很简单,例:123var paper = Raphael(&quot;id&quot;);var path = paper.path(&quot;M0 100 L 100 100&quot;);path.animate(&amp;#123;path:&quot;M0 100 L50 100 100">
-<meta property="og:updated_time" content="2016-11-17T10:18:52.653Z">
+<meta property="og:updated_time" content="2016-11-17T10:42:25.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用RaphaelJS绘制曲线">
 <meta name="twitter:description" content="RaphaelJS是一个SVG库,使用起来很方便,简单的代码就可以实现复杂的动画最近遇到一个功能,需要实现一条平滑的曲线.使用Raphael做一个线条变化动画很简单,例:123var paper = Raphael(&quot;id&quot;);var path = paper.path(&quot;M0 100 L 100 100&quot;);path.animate(&amp;#123;path:&quot;M0 100 L50 100 100">
@@ -193,9 +193,9 @@
         <p>RaphaelJS是一个SVG库,使用起来很方便,简单的代码就可以实现复杂的动画<br>最近遇到一个功能,需要实现一条平滑的曲线.<br>使用Raphael做一个线条变化动画很简单,例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> paper = Raphael(<span class="string">"id"</span>);</div><div class="line"><span class="keyword">var</span> path = paper.path(<span class="string">"M0 100 L 100 100"</span>);</div><div class="line">path.animate(&#123;path:<span class="string">"M0 100 L50 100 100 100 "</span>&#125;,<span class="number">1000</span>)</div></pre></td></tr></table></figure></p>
 <p>就可以看到path的变化</p>
 <p>本次做出的实际效果为:</p>
-<p><image src="http://mrns.xyz/css/img/curveExample.gif"><br><a id="more"></a><br>放出demo:<br><a href="http://mrns.xyz/cruve.html" target="_blank" rel="external">平滑曲线</a><br>demo效果为:</image></p>
-<p><image src="http://mrns.xyz/css/img/curve.gif"><br>实现原理为使用paper.path的R命令即可轻松的实现曲线的绘制,API如图:</image></p>
-<p><image src="http://mrns.xyz/css/img/pathAPI.gif"><br>其中使用C,Q,或T命令可以绘制贝塞尔二次曲线<br>将10个点的位置使用path函数绘制例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">paper.path(<span class="string">"M0 100 R 50 50 100 100"</span>)</div></pre></td></tr></table></figure></image></p>
+<p><image src="http://mrns.xyz/css/img/curveGif.gif"><br><a id="more"></a><br>放出demo:<br><a href="http://mrns.xyz/cruve.html" target="_blank" rel="external">平滑曲线</a><br>demo效果为:</image></p>
+<p><image src="http://mrns.xyz/css/img/curveDemo.gif"><br>实现原理为使用paper.path的R命令即可轻松的实现曲线的绘制,API如图:</image></p>
+<p><image src="http://mrns.xyz/css/img/raphaelPath.png"><br>其中使用C,Q,或T命令可以绘制贝塞尔二次曲线<br>将10个点的位置使用path函数绘制例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">paper.path(<span class="string">"M0 100 R 50 50 100 100"</span>)</div></pre></td></tr></table></figure></image></p>
 <p>demo中先绘制了一条直线,使用animate方法将直线变换到曲线</p>
 
       
