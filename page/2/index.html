@@ -173,6 +173,59 @@
       <div class="body-wrap">
         
   
+    <article id="post-使用变量全局替换字符串-替换字符串中出现的文字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/09/使用变量全局替换字符串-替换字符串中出现的文字/">使用变量全局替换字符串,替换字符串中出现的文字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近遇到需求需要将字符串中的文本进行高亮显示,如图:</p>
+<p><image src="http://www.mrns.xyz/css/img/nodereplace.png" width="300px"><br>因为文字是动态变化的,所以这里有两种方法</image></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>使用split,join方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.split(a).join(b);<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用replace和正则表达式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(a,<span class="string">'gm'</span>),b)<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/09/使用变量全局替换字符串-替换字符串中出现的文字/" class="archive-article-date">
+  	<time datetime="2016-10-09T07:22:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo提交报错 unable-to-access-https-github-com-github-io-git-Couldn-t-resolve-host-github-com" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -433,7 +486,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
+    				<a href="/tags/RaphaelJS-SVG/" style="font-size: 10px;">-RaphaelJS -SVG</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
     			</div>
     	</section>
     
