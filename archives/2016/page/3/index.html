@@ -4,21 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Babel的简单使用 | I am Xiaozhu</title>
+  <title>Archives: 2016 | I am Xiaozhu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Babel安装1.安装babel: npm install –save-dev babel-cli2.安装babel-preset-es2015预设,同上3.创建babel配置文件.babelrc,并添加”presets”:[“es2015”];
-运行123./node_modules/.bin/babel  fileName --out-file newFileName./node_module">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Babel的简单使用">
-<meta property="og:url" content="http://yoursite.com/2016/10/18/Babel的简单使用/index.html">
+  <meta name="description" content="专注于一件事">
+<meta property="og:type" content="website">
+<meta property="og:title" content="I am Xiaozhu">
+<meta property="og:url" content="http://yoursite.com/archives/2016/page/3/index.html">
 <meta property="og:site_name" content="I am Xiaozhu">
-<meta property="og:description" content="Babel安装1.安装babel: npm install –save-dev babel-cli2.安装babel-preset-es2015预设,同上3.创建babel配置文件.babelrc,并添加”presets”:[“es2015”];
-运行123./node_modules/.bin/babel  fileName --out-file newFileName./node_module">
-<meta property="og:updated_time" content="2016-11-07T06:59:19.164Z">
+<meta property="og:description" content="专注于一件事">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Babel的简单使用">
-<meta name="twitter:description" content="Babel安装1.安装babel: npm install –save-dev babel-cli2.安装babel-preset-es2015预设,同上3.创建babel配置文件.babelrc,并添加”presets”:[“es2015”];
-运行123./node_modules/.bin/babel  fileName --out-file newFileName./node_module">
+<meta name="twitter:title" content="I am Xiaozhu">
+<meta name="twitter:description" content="专注于一件事">
   
     <link rel="alternative" href="/atom.xml" title="I am Xiaozhu" type="application/atom+xml">
   
@@ -175,107 +171,85 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Babel的简单使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Babel的简单使用
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/10/08/flex布局详解/" class="archive-article-date">
+  	<time datetime="2016-10-08T08:30:30.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/10/08/flex布局详解/">flex布局详解</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Babel安装"><a href="#Babel安装" class="headerlink" title="Babel安装"></a>Babel安装</h4><p>1.安装babel: npm install –save-dev babel-cli<br>2.安装babel-preset-es2015预设,同上<br>3.创建babel配置文件.babelrc,并添加”presets”:[“es2015”];</p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./node_modules/.bin/babel  fileName --out-file newFileName</div><div class="line">./node_modules/.bin/babel src --out-dir lib</div><div class="line">./node_modules/.bin/babel src --watch --out-dir lib//启动监听</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>如果没有创建bable配置文件也可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./node_modules/.bin/babel fileName --presets es2015</div></pre></td></tr></table></figure></p>
-<p>或者在package.json中scripts添加任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">‘build’:’babel src --watch --out-dir lib’</div></pre></td></tr></table></figure></p>
-<p>执行npm run build即可启动babel自动监听</p>
-<h5 id="babel-register"><a href="#babel-register" class="headerlink" title="babel-register"></a>babel-register</h5><p>babel-reigster模块改写require命令，为它加上一个钩子.伺候每当使用require加载.js,.jsx,.es和.es6后缀名的文件,就会先用Babel进行转码.(实时转码,所以只适合在开发环境使用)<br>使用时,必须首先加载babel-register//require(“babel-register”).</p>
-<h5 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill:"></a>babel-polyfill:</h5><p>Babel默认只转换新的JavaScript句法,而不转换新的API,比如Iterator,Generator,Set,Maps,Proxy,Reflect,Symbol,Promise等全局对象,以及一些定义在全局对象上的方法(比如Object.assign)</p>
-<p>举例:ES6在Array对象上新增了Array.from方法.Babel就不会转码这个方法.如果想让这个方法允许,必须使用babel-polyfill,为当前环境提供一个垫片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//引入方法</div><div class="line">import &apos;babel-polyfill&apos;;</div><div class="line">//或者</div><div class="line">require(&apos;babel-polyfill&apos;);</div></pre></td></tr></table></figure></p>
-<h4 id="使用浏览器版本babel"><a href="#使用浏览器版本babel" class="headerlink" title="使用浏览器版本babel"></a>使用浏览器版本babel</h4><p>Babel6.0开始,不再直接提供浏览器版本,需要使用构建工具构建,或者通过5.x版本的babel-core模块获取.<br>在node_modules/babel-core/browser.js是Babel提供的转换脚本,可以在浏览器允许.ES6脚本放在script标签中,并注明  type=’text/babel’<br>另一种方法是使用babel-standalone模块提供的浏览器脚本.<br>  网页中实时将ES6代码转为ES5,对性能会有影响.生产环境需要加载已经转码后的脚本</p>
-<p>  Babel提供一个在线编译器</p>
-<blockquote>
-<p><a href="https://babeljs.io/repl/#?babili=false&amp;evaluate=true&amp;lineWrap=false&amp;presets=es2015%2Creact%2Cstage-2&amp;code=" target="_blank" rel="external">https://babeljs.io/repl/#?babili=false&amp;evaluate=true&amp;lineWrap=false&amp;presets=es2015%2Creact%2Cstage-2&amp;code=</a></p>
-</blockquote>
-<p>Google的Traceur转码器，也可以将ES6代码转为ES5代码。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/18/Babel的简单使用/" class="archive-article-date">
-  	<time datetime="2016-10-18T03:43:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
-</a>
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es2015/">es2015</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
 	</div>
 
-      
+          
 
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/08/09/hello-world/" class="archive-article-date">
+  	<time datetime="2016-08-09T04:59:16.217Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-09</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2016/11/03/创建颜色渐变/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          创建颜色渐变
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/08/09/hello-world/">Hello World</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
-    <a href="/2016/10/17/我用的chrome插件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我用的chrome插件</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-	    <a class="jiathis_button_twitter"></a>
-	    <a class="jiathis_button_plus"></a> 
-	    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2016/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 
 
       </div>
@@ -312,8 +286,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
