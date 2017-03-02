@@ -173,6 +173,75 @@
       <div class="body-wrap">
         
   
+    <article id="post-canvas合成图片的各种坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/canvas合成图片的各种坑/">canvas合成图片的各种坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做南航三八妇女节推广活动时,用到了canvas合成图片和文字:</p>
+<p><image src="http://www.mrns.xyz/css/img/nanhang38.jpg" width="300px"><br>图中墨菲为微信授权登录获取的用户昵称</image></p>
+<p>坑1:</p>
+<blockquote>
+<p>页面中使用了网络字体,canvas中所引用的字体必须在文档流中有其他标签(span,p等)引用该字体!!!否则无法使用…</p>
+</blockquote>
+<p>坑2:</p>
+<blockquote>
+<p>必须再等到字体下载完成之后再去渲染canvas,字体才能有作用(这个是废话,不过一般中文字体包都比较大,如果不注意可能执行js代码的时候字体文件还没有下载完成)</p>
+</blockquote>
+<p>坑3:</p>
+<blockquote>
+<p>canvas连续draw图片的时候,需要一定间隔,这个问题是在IOS发现的,使用Android没有问题,IOS有时会出现之后draw没有绘制成功的问题,加间隔后解决</p>
+</blockquote>
+<p>坑4:</p>
+<blockquote>
+<p>canvas绘制图片进行拉伸等操作会造成图片失真,不改变图片默认大小绘制不失真</p>
+</blockquote>
+<p>在向canvas上下文绘制图片时,可以直接使用new Image(),不一定要使用实体img标签</p>
+<p>将Data URL(base64)放入img的src时候,如果img样式设置宽高,不会影响图片质量,下载下来的图片仍然是原图大小</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/02/canvas合成图片的各种坑/" class="archive-article-date">
+  	<time datetime="2017-03-02T10:38:35.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-复制对象和数组的几个方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -389,66 +458,6 @@
 
 
   
-    <article id="post-URL字符串编码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/13/URL字符串编码/">URL字符串编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   在多个页面之间通信,经常会将参数放入URL中以传递到下个页面.但是在下个页面更改这个参数,避免页面重新跳转刷新可以将参数放到location.hash中,而非location.search中.(比如单页面应用,通常使用hash,已经保证收藏或者转发的URL指向相同的内容)</p>
-<p>   在火狐和低版本IE中,location中的中文会被转码,取到的location需要被转码才能拿到正确的数据.解码函数为decodeURIComponent<br>   js中的编码函数有三个</p>
-<p>   1.escape<br>   该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： <em> @ - _ + . / 。其他所有的字符都会被<em>*转义序列</em></em>替换。<br>   对应的解码函数为unescape()</p>
-<blockquote>
-<p>ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。</p>
-</blockquote>
-<p>   2.encodeURI<br>    对应解码函数为decodeURI</p>
-<blockquote>
-<p>如果 URI 组件中含有分隔符，比如 ? 和 #，则应当使用 encodeURIComponent() 方法分别对各组件进行编码。</p>
-</blockquote>
-<p> 3.encodeURIComponent<br>   decodeURIComponent</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/13/URL字符串编码/" class="archive-article-date">
-  	<time datetime="2016-11-13T09:25:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-13</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -551,7 +560,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
     			</div>
     	</section>
     

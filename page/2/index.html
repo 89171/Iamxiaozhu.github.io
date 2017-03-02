@@ -173,6 +173,66 @@
       <div class="body-wrap">
         
   
+    <article id="post-URL字符串编码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/13/URL字符串编码/">URL字符串编码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   在多个页面之间通信,经常会将参数放入URL中以传递到下个页面.但是在下个页面更改这个参数,避免页面重新跳转刷新可以将参数放到location.hash中,而非location.search中.(比如单页面应用,通常使用hash,已经保证收藏或者转发的URL指向相同的内容)</p>
+<p>   在火狐和低版本IE中,location中的中文会被转码,取到的location需要被转码才能拿到正确的数据.解码函数为decodeURIComponent<br>   js中的编码函数有三个</p>
+<p>   1.escape<br>   该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： <em> @ - _ + . / 。其他所有的字符都会被<em>*转义序列</em></em>替换。<br>   对应的解码函数为unescape()</p>
+<blockquote>
+<p>ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。</p>
+</blockquote>
+<p>   2.encodeURI<br>    对应解码函数为decodeURI</p>
+<blockquote>
+<p>如果 URI 组件中含有分隔符，比如 ? 和 #，则应当使用 encodeURIComponent() 方法分别对各组件进行编码。</p>
+</blockquote>
+<p> 3.encodeURIComponent<br>   decodeURIComponent</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/13/URL字符串编码/" class="archive-article-date">
+  	<time datetime="2016-11-13T09:25:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-创建颜色渐变" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -382,58 +442,6 @@
 
 
   
-    <article id="post-hexo提交报错 unable-to-access-https-github-com-github-io-git-Couldn-t-resolve-host-github-com" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/08/hexo提交报错 unable-to-access-https-github-com-github-io-git-Couldn-t-resolve-host-github-com/">hexo提交报错 unable to access &#39;https://github.com/*/*.github.io.git/&#39;: Couldn&#39;t resolve host &#39;github.com&#39;</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="今天hexo提交遇到问题，先后报下列错误"><a href="#今天hexo提交遇到问题，先后报下列错误" class="headerlink" title="今天hexo提交遇到问题，先后报下列错误"></a>今天hexo提交遇到问题，先后报下列错误</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fatal: unable to access <span class="string">'https://github.com/*/*.github.io.git/'</span>: Failed to connect to github.com port 443: Timed out</div><div class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></div><div class="line">Error: fatal: unable to access 'https://github.com/*/*.github.io.git/<span class="string">': Failed to connect to github.com port 443: Timed out</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></div><div class="line">Error: fatal: unable to access 'https://github.com/*/*.github.io.git/<span class="string">': Couldn'</span>t resolve host <span class="string">'github.com'</span></div><div class="line"></div><div class="line">FATAL fatal: unable to access <span class="string">'https://github.com/*/*.github.io.git/'</span>: Couldn<span class="string">'t resolve host '</span>github.com<span class="string">'</span></div></pre></td></tr></table></figure>
-<p>解决方法为：<br>将hexo配置文件——config.yml中deploy》repo更改为<br><a href="https://用户名:密码@github.com/pythonsoft/test.git然后就可以了。" target="_blank" rel="external">https://用户名:密码@github.com/pythonsoft/test.git然后就可以了。</a></p>
-<h2 id="注意：用户名不是登陆账号名，-是github的用户名"><a href="#注意：用户名不是登陆账号名，-是github的用户名" class="headerlink" title="注意：用户名不是登陆账号名， 是github的用户名"></a>注意：用户名不是登陆账号名， 是github的用户名</h2>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/08/hexo提交报错 unable-to-access-https-github-com-github-io-git-Couldn-t-resolve-host-github-com/" class="archive-article-date">
-  	<time datetime="2016-10-08T11:08:14.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -536,7 +544,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
     			</div>
     	</section>
     
