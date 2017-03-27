@@ -173,6 +173,61 @@
       <div class="body-wrap">
         
   
+    <article id="post-使用RaphaelJS绘制曲线" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/17/使用RaphaelJS绘制曲线/">使用RaphaelJS绘制曲线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RaphaelJS是一个SVG库,使用起来很方便,简单的代码就可以实现复杂的动画<br>最近遇到一个功能,需要实现一条平滑的曲线.<br>使用Raphael做一个线条变化动画很简单,例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> paper = Raphael(<span class="string">"id"</span>);</div><div class="line"><span class="keyword">var</span> path = paper.path(<span class="string">"M0 100 L 100 100"</span>);</div><div class="line">path.animate(&#123;path:<span class="string">"M0 100 L50 100 100 100 "</span>&#125;,<span class="number">1000</span>)</div></pre></td></tr></table></figure></p>
+<p>就可以看到path的变化 </p>
+<p>本次做出的实际效果为:</p>
+<p><image src="http://mrns.xyz/css/img/curveGif.gif"><br>
+        <p class="article-more-link">
+          <a  href="/2016/11/17/使用RaphaelJS绘制曲线/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/17/使用RaphaelJS绘制曲线/" class="archive-article-date">
+  	<time datetime="2016-11-17T09:19:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-17</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RaphaelJS/">RaphaelJS,</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVG/">SVG</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-URL字符串编码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -370,59 +425,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-使用变量全局替换字符串-替换字符串中出现的文字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/使用变量全局替换字符串-替换字符串中出现的文字/">使用变量全局替换字符串,替换字符串中出现的文字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近遇到需求需要将字符串中的文本进行高亮显示,如图:</p>
-<p><image src="http://www.mrns.xyz/css/img/nodereplace.png" width="300px"><br>因为文字是动态变化的,所以这里有两种方法</image></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>使用split,join方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.split(a).join(b);<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用replace和正则表达式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将str中的a变量替换为b变量</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">"2"</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">"1213141516171819"</span>;</div><div class="line"><span class="keyword">var</span> newStr = str.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(a,<span class="string">'gm'</span>),b)<span class="comment">//2223242526272829</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/09/使用变量全局替换字符串-替换字符串中出现的文字/" class="archive-article-date">
-  	<time datetime="2016-10-09T07:22:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 	</div>
 
       
