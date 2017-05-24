@@ -173,6 +173,94 @@
       <div class="body-wrap">
         
   
+    <article id="post-清除微信浏览器缓存问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存-用之前的方法无法清除缓存"><a href="#在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存-用之前的方法无法清除缓存" class="headerlink" title="在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存,用之前的方法无法清除缓存"></a>在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存,用之前的方法无法清除缓存</h5><p>平常所用清除微信浏览器缓存的方法:</p>
+<ul>
+<li>加版本号</li>
+<li>彻底关闭微信重新进入,</li>
+<li>退出重登</li>
+</ul>
+<p>在以前的工作中上面三步基本都能达到清除效果</p>
+<p>如果在微信安卓端,可以使用debugx5.qq.com来清除文件缓存,但是ios使用的是苹果系统浏览器内核,无法解决</p>
+<p>最后使用了一种方法:<br>删除服务器端文件&gt;微信访问服务器端删除的文件&gt;将删除的文件重新放回服务器&gt;缓存清除</p>
+<p>麻烦是麻烦,但是总算是清掉了缓存……</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/24/清除微信浏览器缓存问题/" class="archive-article-date">
+  	<time datetime="2017-05-24T03:44:03.741Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-24</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-turn-js实现日历翻页效果" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/02/turn-js实现日历翻页效果/">turn.js实现日历翻页效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/02/turn-js实现日历翻页效果/" class="archive-article-date">
+  	<time datetime="2017-05-02T11:16:30.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-02</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-微信中如何长按图片保存的是另一张图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -350,118 +438,9 @@
 
 
   
-    <article id="post-微信开发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/02/微信开发/">微信开发 config:invalid url domain</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近公司在给南方航空做个微信公众平台H5的小项目，需要使用微信jssdk.<br>前期需求基本不明确所以简单做下技术语言，写些小demo<br>首先遇到的问题是需要服务器和域名，公司比较抠，所以用的是自己电脑加内网映射，可以参考上一篇文章。<br>&lt;–! more –&gt;<br>微信提供了<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1455784140&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">web开发者工具</a>，可以模拟手机端，并且能查看到控制台和jssdk调用情况，需在微信公众号后台启用开发者中心，在开发者工具&gt;&gt;web开发者界面向开发者发送绑定邀请</p>
-<p>微信提供了<a href="http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index" target="_blank" rel="external">接口测试号申请</a>，<a href="http://mp.weixin.qq.com/debug/" target="_blank" rel="external">微信公众平台接口调试工具</a>可以很方便的使用测试号进行测试开发</p>
-<p>js安全域名使用不带协议和路径的域名即可比如：<a href="http://xiaozhu.test.abc.com/test.html，填写xiaozhu.test.abc.com" target="_blank" rel="external">http://xiaozhu.test.abc.com/test.html，填写xiaozhu.test.abc.com</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/02/微信开发/" class="archive-article-date">
-  	<time datetime="2016-12-02T08:27:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-02</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-内网穿透工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/28/内网穿透工具/">内网穿透工具</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>内外穿透是网络连接术语，计算机是局域网内时，外网与内网的计算机节点需要连接通信，有时就会出现不支持内网穿透。就是说映射端口，能让外网的电脑找到处于内网的电脑,提高下载速度。</p>
-<p>内网穿透有什么用，说白了也就是可以轻松的找到所要需找的电脑，并且可以提高访问和下载速度，以便我们可以轻轻松松的实现远距离文件传输、远距离办公等。</p>
-</blockquote>
-<p>  最近在做微信公众号开发,使用测试账号,需要一个域名和服务器,暂属于技术预言阶段,所以没有使用公司的服务器,自己的服务器也没动所以用到了内网穿透<br>之前用过国产工具有花生壳,用起来也挺简单的,不过现在已经开始收费了,虽然也有免费版的但是需要身份证验证.</p>
-<p>第二个选择是神器ngrok,支持跨平台,但是ngrok@2.X之后版本不再免费映射到指定域名前缀,使用随机分配前缀.国内也有人搭建公用的ngrok服务器,大家可以访问<a href="http://www.ngrok.cc查看细节" target="_blank" rel="external">http://www.ngrok.cc查看细节</a><br><a href="http://ngrok.com" target="_blank" rel="external">下载ngrok</a><br>使用命令,映射到本地1234端口:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok http 1234</div></pre></td></tr></table></figure></p>
-<p>  ngrok有时候存在连接不稳定的情况,之后又改为使用XTunnel,使用方法也很简单<br><a href="http://www.dkys.org/downloads_xtunnel.html" target="_blank" rel="external">下载XTunnel</a><br>非Windows需Java运行环境</p>
-<p>当然也还有其他的内网映射工具,像urtalhook,<a href="https://tunnel.mobi/index.html" target="_blank" rel="external">基于frp的公网服务</a>,localtunnel这里就不赘述了</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/28/内网穿透工具/" class="archive-article-date">
-  	<time datetime="2016-11-28T03:49:44.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透工具/">内网穿透工具</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
