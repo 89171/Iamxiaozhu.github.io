@@ -173,7 +173,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-复制对象和数组的几个方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CSS3文字描边效果" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -183,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/复制对象和数组的几个方法/">复制对象的几个方法</a>
+      <a class="article-title" href="/2017/11/23/CSS3文字描边效果/">CSS3文字描边效果</a>
     </h1>
   
 
@@ -191,245 +191,242 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法1 原型链</span></div><div class="line"><span class="built_in">Object</span>.prototype.Clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> objClone;  </div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>.constructor == <span class="built_in">Object</span> ) objClone = <span class="keyword">new</span> <span class="keyword">this</span>.constructor();  </div><div class="line">    <span class="keyword">else</span> objClone = <span class="keyword">new</span> <span class="keyword">this</span>.constructor(<span class="keyword">this</span>.valueOf());  </div><div class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> key <span class="keyword">in</span> <span class="keyword">this</span> )&#123;  </div><div class="line">        <span class="keyword">if</span> ( objClone[key] != <span class="keyword">this</span>[key] )&#123;  </div><div class="line">            <span class="keyword">if</span> ( <span class="keyword">typeof</span>(<span class="keyword">this</span>[key]) == <span class="string">'object'</span> ) &#123;  </div><div class="line">                 objClone[key] = <span class="keyword">this</span>[key].Clone();  </div><div class="line">             &#125;<span class="keyword">else</span> &#123;  </div><div class="line">                 objClone[key] = <span class="keyword">this</span>[key];  </div><div class="line">             &#125;  </div><div class="line">         &#125;  </div><div class="line">     &#125;  </div><div class="line">     objClone.toString = <span class="keyword">this</span>.toString;  </div><div class="line">     objClone.valueOf = <span class="keyword">this</span>.valueOf;  </div><div class="line">    <span class="keyword">return</span> objClone;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-        <p class="article-more-link">
-          <a  href="/2016/12/06/复制对象和数组的几个方法/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/06/复制对象和数组的几个方法/" class="archive-article-date">
-  	<time datetime="2016-12-06T09:58:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-06</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-微信开发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/02/微信开发/">微信开发 config:invalid url domain</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近公司在给南方航空做个微信公众平台H5的小项目，需要使用微信jssdk.<br>前期需求基本不明确所以简单做下技术语言，写些小demo<br>首先遇到的问题是需要服务器和域名，公司比较抠，所以用的是自己电脑加内网映射，可以参考上一篇文章。<br>&lt;–! more –&gt;<br>微信提供了<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1455784140&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">web开发者工具</a>，可以模拟手机端，并且能查看到控制台和jssdk调用情况，需在微信公众号后台启用开发者中心，在开发者工具&gt;&gt;web开发者界面向开发者发送绑定邀请</p>
-<p>微信提供了<a href="http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index" target="_blank" rel="external">接口测试号申请</a>，<a href="http://mp.weixin.qq.com/debug/" target="_blank" rel="external">微信公众平台接口调试工具</a>可以很方便的使用测试号进行测试开发</p>
-<p>js安全域名使用不带协议和路径的域名即可比如：<a href="http://xiaozhu.test.abc.com/test.html，填写xiaozhu.test.abc.com" target="_blank" rel="external">http://xiaozhu.test.abc.com/test.html，填写xiaozhu.test.abc.com</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/02/微信开发/" class="archive-article-date">
-  	<time datetime="2016-12-02T08:27:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-02</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发/">微信开发</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-内网穿透工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/28/内网穿透工具/">内网穿透工具</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>内外穿透是网络连接术语，计算机是局域网内时，外网与内网的计算机节点需要连接通信，有时就会出现不支持内网穿透。就是说映射端口，能让外网的电脑找到处于内网的电脑,提高下载速度。</p>
-<p>内网穿透有什么用，说白了也就是可以轻松的找到所要需找的电脑，并且可以提高访问和下载速度，以便我们可以轻轻松松的实现远距离文件传输、远距离办公等。</p>
-</blockquote>
-<p>  最近在做微信公众号开发,使用测试账号,需要一个域名和服务器,暂属于技术预言阶段,所以没有使用公司的服务器,自己的服务器也没动所以用到了内网穿透<br>之前用过国产工具有花生壳,用起来也挺简单的,不过现在已经开始收费了,虽然也有免费版的但是需要身份证验证.</p>
-<p>第二个选择是神器ngrok,支持跨平台,但是ngrok@2.X之后版本不再免费映射到指定域名前缀,使用随机分配前缀.国内也有人搭建公用的ngrok服务器,大家可以访问<a href="http://www.ngrok.cc查看细节" target="_blank" rel="external">http://www.ngrok.cc查看细节</a><br><a href="http://ngrok.com" target="_blank" rel="external">下载ngrok</a><br>使用命令,映射到本地1234端口:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok http 1234</div></pre></td></tr></table></figure></p>
-<p>  ngrok有时候存在连接不稳定的情况,之后又改为使用XTunnel,使用方法也很简单<br><a href="http://www.dkys.org/downloads_xtunnel.html" target="_blank" rel="external">下载XTunnel</a><br>非Windows需Java运行环境</p>
-<p>当然也还有其他的内网映射工具,像urtalhook,<a href="https://tunnel.mobi/index.html" target="_blank" rel="external">基于frp的公网服务</a>,localtunnel这里就不赘述了</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/28/内网穿透工具/" class="archive-article-date">
-  	<time datetime="2016-11-28T03:49:44.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透工具/">内网穿透工具</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-使用RaphaelJS绘制曲线" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/使用RaphaelJS绘制曲线/">使用RaphaelJS绘制曲线</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>RaphaelJS是一个SVG库,使用起来很方便,简单的代码就可以实现复杂的动画<br>最近遇到一个功能,需要实现一条平滑的曲线.<br>使用Raphael做一个线条变化动画很简单,例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> paper = Raphael(<span class="string">"id"</span>);</div><div class="line"><span class="keyword">var</span> path = paper.path(<span class="string">"M0 100 L 100 100"</span>);</div><div class="line">path.animate(&#123;path:<span class="string">"M0 100 L50 100 100 100 "</span>&#125;,<span class="number">1000</span>)</div></pre></td></tr></table></figure></p>
-<p>就可以看到path的变化 </p>
-<p>本次做出的实际效果为:</p>
-<p><image src="http://mrns.xyz/css/img/curveGif.gif"><br>
-        <p class="article-more-link">
-          <a  href="/2016/11/17/使用RaphaelJS绘制曲线/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/17/使用RaphaelJS绘制曲线/" class="archive-article-date">
-  	<time datetime="2016-11-17T09:19:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-17</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RaphaelJS/">RaphaelJS,</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVG/">SVG</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-URL字符串编码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/13/URL字符串编码/">URL字符串编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   在多个页面之间通信,经常会将参数放入URL中以传递到下个页面.但是在下个页面更改这个参数,避免页面重新跳转刷新可以将参数放到location.hash中,而非location.search中.(比如单页面应用,通常使用hash,已经保证收藏或者转发的URL指向相同的内容)</p>
-<p>   在火狐和低版本IE中,location中的中文会被转码,取到的location需要被转码才能拿到正确的数据.解码函数为decodeURIComponent<br>   js中的编码函数有三个</p>
-<p>   1.escape<br>   该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： <em> @ - _ + . / 。其他所有的字符都会被<em>*转义序列</em></em>替换。<br>   对应的解码函数为unescape()</p>
+        <h3 id="CSS3-中有text-stroke属性，加上-webkit-前缀兼容性也还不错，但是只有在字体很大的时候才能看到描边效果，如果字体比较小，描边颜色会遮住文字本身颜色"><a href="#CSS3-中有text-stroke属性，加上-webkit-前缀兼容性也还不错，但是只有在字体很大的时候才能看到描边效果，如果字体比较小，描边颜色会遮住文字本身颜色" class="headerlink" title="CSS3 中有text-stroke属性，加上-webkit-前缀兼容性也还不错，但是只有在字体很大的时候才能看到描边效果，如果字体比较小，描边颜色会遮住文字本身颜色"></a>CSS3 中有text-stroke属性，加上-webkit-前缀兼容性也还不错，但是只有在字体很大的时候才能看到描边效果，如果字体比较小，描边颜色会遮住文字本身颜色</h3><p><img src="http://img.blog.csdn.net/20170925190011633?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdzIwMTAxMzEw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <blockquote>
-<p>ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。</p>
+<p>上图为黑色字体白色描边，字体颜色被遮盖</p>
 </blockquote>
-<p>   2.encodeURI<br>    对应解码函数为decodeURI</p>
-<blockquote>
-<p>如果 URI 组件中含有分隔符，比如 ? 和 #，则应当使用 encodeURIComponent() 方法分别对各组件进行编码。</p>
-</blockquote>
-<p> 3.encodeURIComponent<br>   decodeURIComponent</p>
+<h3 id="可以通过字体阴影text-shadow实现文字描边效果"><a href="#可以通过字体阴影text-shadow实现文字描边效果" class="headerlink" title="可以通过字体阴影text-shadow实现文字描边效果"></a>可以通过字体阴影text-shadow实现文字描边效果</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-shadow</span><span class="selector-pseudo">:2px</span> 2<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#fff</span></div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170925191353756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdzIwMTAxMzEw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="但是描边比较细，并且阴影是单方向的，我们可以添加对称方向的阴影："><a href="#但是描边比较细，并且阴影是单方向的，我们可以添加对称方向的阴影：" class="headerlink" title="但是描边比较细，并且阴影是单方向的，我们可以添加对称方向的阴影："></a>但是描边比较细，并且阴影是单方向的，我们可以添加对称方向的阴影：</h4><h3 id="如果觉得文字描边不够粗，可以使用多重字体阴影，这样就可以比较粗的描边"><a href="#如果觉得文字描边不够粗，可以使用多重字体阴影，这样就可以比较粗的描边" class="headerlink" title="如果觉得文字描边不够粗，可以使用多重字体阴影，这样就可以比较粗的描边"></a>如果觉得文字描边不够粗，可以使用多重字体阴影，这样就可以比较粗的描边</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1<span class="selector-tag">px</span> 1<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span>, <span class="selector-tag">-1px</span> <span class="selector-tag">-1px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span>, 2<span class="selector-tag">px</span> 2<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span>, <span class="selector-tag">-2px</span> <span class="selector-tag">-2px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span>, 3<span class="selector-tag">px</span> 3<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span>, <span class="selector-tag">-3px</span> <span class="selector-tag">-3px</span> 0<span class="selector-tag">px</span> <span class="selector-id">#FFFFFF</span></div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170925191613990?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdzIwMTAxMzEw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/13/URL字符串编码/" class="archive-article-date">
-  	<time datetime="2016-11-13T09:25:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-13</time>
+      <a href="/2017/11/23/CSS3文字描边效果/" class="archive-article-date">
+  	<time datetime="2017-11-23T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-aws linux服务器,ubuntu，远程连接MySQL,ERROR 2003 (HY000)- Can&#39;t connect to MySQL server on" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/aws linux服务器,ubuntu，远程连接MySQL,ERROR 2003 (HY000)- Can't connect to MySQL server on/">aws linux服务器,ubuntu，远程连接MySQL,ERROR 2003 (HY000)- Can&#39;t connect to MySQL server on</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-如果使用aws服务器，进入aws控制台，找到运行实例的安全组，编辑入站安全组，添加规则。选择规则MYSQL-Aurora，端口设置为3306，保存"><a href="#1-如果使用aws服务器，进入aws控制台，找到运行实例的安全组，编辑入站安全组，添加规则。选择规则MYSQL-Aurora，端口设置为3306，保存" class="headerlink" title="1.如果使用aws服务器，进入aws控制台，找到运行实例的安全组，编辑入站安全组，添加规则。选择规则MYSQL/Aurora，端口设置为3306，保存"></a>1.如果使用aws服务器，进入aws控制台，找到运行实例的安全组，编辑入站安全组，添加规则。选择规则MYSQL/Aurora，端口设置为3306，保存</h4><h4 id="2-取消绑定地址，允许来自外网的访问。编辑-etc-mysql-mysql-conf-d-mysqld-cnf-找到bind-address-127-0-0-1，在其前面添加-，注释该行。"><a href="#2-取消绑定地址，允许来自外网的访问。编辑-etc-mysql-mysql-conf-d-mysqld-cnf-找到bind-address-127-0-0-1，在其前面添加-，注释该行。" class="headerlink" title="2.取消绑定地址，允许来自外网的访问。编辑/etc/mysql/mysql.conf.d/mysqld.cnf 找到bind-address        = 127.0.0.1，在其前面添加#，注释该行。"></a>2.取消绑定地址，允许来自外网的访问。编辑/etc/mysql/mysql.conf.d/mysqld.cnf 找到bind-address        = 127.0.0.1，在其前面添加#，注释该行。</h4><h4 id="3-登录数据库，执行以下代码"><a href="#3-登录数据库，执行以下代码" class="headerlink" title="3.登录数据库，执行以下代码"></a>3.登录数据库，执行以下代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'username'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'password'</span> WITH GRANT OPTION;</div><div class="line">FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
+<h4 id="第一行代码作用为创建用户username，设置密码为password，并且允许来自所有域名的访问，第二行代码为更新权限。"><a href="#第一行代码作用为创建用户username，设置密码为password，并且允许来自所有域名的访问，第二行代码为更新权限。" class="headerlink" title="第一行代码作用为创建用户username，设置密码为password，并且允许来自所有域名的访问，第二行代码为更新权限。"></a>第一行代码作用为创建用户username，设置密码为password，并且允许来自所有域名的访问，第二行代码为更新权限。</h4><h4 id="如果更改已有的用户允许远程访问可以修改mysql数据库下user表，将默认字段Host内容‘localhost’更改为‘-’。"><a href="#如果更改已有的用户允许远程访问可以修改mysql数据库下user表，将默认字段Host内容‘localhost’更改为‘-’。" class="headerlink" title="如果更改已有的用户允许远程访问可以修改mysql数据库下user表，将默认字段Host内容‘localhost’更改为‘%’。"></a>如果更改已有的用户允许远程访问可以修改mysql数据库下user表，将默认字段Host内容‘localhost’更改为‘%’。</h4><h4 id="将root设置为可使用外网访问；"><a href="#将root设置为可使用外网访问；" class="headerlink" title="将root设置为可使用外网访问；"></a>将root设置为可使用外网访问；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">USE mysql;</div><div class="line">UPDATE user SET Host=<span class="string">'%'</span> <span class="built_in">where</span> User=<span class="string">'root'</span>;</div><div class="line">FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
+<h4 id="如果还是没有生效，请留言"><a href="#如果还是没有生效，请留言" class="headerlink" title="如果还是没有生效，请留言"></a>如果还是没有生效，请留言</h4>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/11/22/aws linux服务器,ubuntu，远程连接MySQL,ERROR 2003 (HY000)- Can't connect to MySQL server on/" class="archive-article-date">
+  	<time datetime="2017-11-22T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws-mysql/">aws  mysql</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ubuntu 安装puppeteer，linux使用puppeteer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/ubuntu 安装puppeteer，linux使用puppeteer/">ubuntu 安装puppeteer，linux使用puppeteer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="在安装puppeteer过程中遇到一些错误，记录一下"><a href="#在安装puppeteer过程中遇到一些错误，记录一下" class="headerlink" title="在安装puppeteer过程中遇到一些错误，记录一下"></a>在安装puppeteer过程中遇到一些错误，记录一下</h4><h4 id="首先可能遇到node-install-js错误，可以使用一下命令参数安装puppeteer"><a href="#首先可能遇到node-install-js错误，可以使用一下命令参数安装puppeteer" class="headerlink" title="首先可能遇到node install.js错误，可以使用一下命令参数安装puppeteer"></a>首先可能遇到node install.js错误，可以使用一下命令参数安装puppeteer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save puppeteer --ignore-scripts</div></pre></td></tr></table></figure>
+<h5 id="或者先执行一下命令再安装puppeteer"><a href="#或者先执行一下命令再安装puppeteer" class="headerlink" title="或者先执行一下命令再安装puppeteer"></a>或者先执行一下命令再安装puppeteer</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> unsafe-perm <span class="literal">true</span></div><div class="line">npm i puppeteer</div></pre></td></tr></table></figure>
+<h4 id="其次可能会遇到各种库没有安装的错误，比如libX11-xcb-so-1，具体所需依赖可以查看Troubleshooting-或直接执行一下命令"><a href="#其次可能会遇到各种库没有安装的错误，比如libX11-xcb-so-1，具体所需依赖可以查看Troubleshooting-或直接执行一下命令" class="headerlink" title="其次可能会遇到各种库没有安装的错误，比如libX11-xcb.so.1，具体所需依赖可以查看Troubleshooting.或直接执行一下命令"></a>其次可能会遇到各种库没有安装的错误，比如libX11-xcb.so.1，具体所需依赖可以查看<a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md" target="_blank" rel="external">Troubleshooting</a>.或直接执行一下命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget</div></pre></td></tr></table></figure>
+<h4 id="还有sandbox-问题，可以尝试在无沙箱模式下运行puppeteer"><a href="#还有sandbox-问题，可以尝试在无沙箱模式下运行puppeteer" class="headerlink" title="还有sandbox 问题，可以尝试在无沙箱模式下运行puppeteer"></a>还有sandbox 问题，可以尝试在无沙箱模式下运行puppeteer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const browser = await puppeteer.launch(&#123;args: [<span class="string">'--no-sandbox'</span>, <span class="string">'--disable-setuid-sandbox'</span>]&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/11/20/ubuntu 安装puppeteer，linux使用puppeteer/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu-puppeteer/">ubuntu puppeteer</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-使用particles.js实现知乎首页Canvas粒子效果，多边形，圆形粒子" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/使用particles.js实现知乎首页Canvas粒子效果，多边形，圆形粒子/">使用particles.js实现知乎首页Canvas粒子效果，多边形，圆形粒子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="大家应该在很多网站是看到过类似的效果"><a href="#大家应该在很多网站是看到过类似的效果" class="headerlink" title="大家应该在很多网站是看到过类似的效果"></a>大家应该在很多网站是看到过类似的效果</h3><h3 id="使用particles-js可以轻松实现。而且可以配置粒子的颜色，填充，数量，速度，形状，边框等效果"><a href="#使用particles-js可以轻松实现。而且可以配置粒子的颜色，填充，数量，速度，形状，边框等效果" class="headerlink" title="使用particles.js可以轻松实现。而且可以配置粒子的颜色，填充，数量，速度，形状，边框等效果"></a>使用particles.js可以轻松实现。而且可以配置粒子的颜色，填充，数量，速度，形状，边框等效果</h3><p>GitHub地址为 <a href="https://github.com/VincentGarreau/particles.js/" target="_blank" rel="external">https://github.com/VincentGarreau/particles.js/</a><br><img src="http://img.blog.csdn.net/20170929161403587?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdzIwMTAxMzEw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/11/20/使用particles.js实现知乎首页Canvas粒子效果，多边形，圆形粒子/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/particles-js/">particles.js</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-nodejs发起HTTPS，GET，POST请求Face++人脸识别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/16/nodejs发起HTTPS，GET，POST请求Face++人脸识别/">nodejs发起HTTPS，GET，POST请求Face++人脸识别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="最近在鼓捣人脸识别，最开始使用了百度AI大脑的人脸识别，有nodejs的SDK包，使用起来也比较方便。但是每日有限额。找了找看到旷视（Face-）试用版本是没有限额的，虽然不保证并发，应该也够用了。"><a href="#最近在鼓捣人脸识别，最开始使用了百度AI大脑的人脸识别，有nodejs的SDK包，使用起来也比较方便。但是每日有限额。找了找看到旷视（Face-）试用版本是没有限额的，虽然不保证并发，应该也够用了。" class="headerlink" title="最近在鼓捣人脸识别，最开始使用了百度AI大脑的人脸识别，有nodejs的SDK包，使用起来也比较方便。但是每日有限额。找了找看到旷视（Face++）试用版本是没有限额的，虽然不保证并发，应该也够用了。"></a>最近在鼓捣人脸识别，最开始使用了百度AI大脑的人脸识别，有nodejs的SDK包，使用起来也比较方便。但是每日有限额。找了找看到旷视（Face++）试用版本是没有限额的，虽然不保证并发，应该也够用了。</h4><h4 id="Face-接口使用https协议可以参考Nodejs官方文档："><a href="#Face-接口使用https协议可以参考Nodejs官方文档：" class="headerlink" title="Face++接口使用https协议可以参考Nodejs官方文档："></a>Face++接口使用https协议可以参考Nodejs官方文档：</h4><blockquote>
+<p><a href="https://nodejs.org/api/https.html#https_class_https_agent" target="_blank" rel="external">https://nodejs.org/api/https.html#https_class_https_agent</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> https = <span class="built_in">require</span>(<span class="string">'https'</span>);</div><div class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> data = querystring.stringify(&#123;</div><div class="line">    api_key:<span class="string">""</span>,</div><div class="line">    api_secret:<span class="string">""</span>,</div><div class="line">    image_url:<span class="string">""</span><span class="comment">//图片地址，接口支持base64,图片地址和imagefile</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">const</span> options = &#123;</div><div class="line">    host:<span class="string">'api-cn.faceplusplus.com'</span>,</div><div class="line">    path:<span class="string">'/facepp/v3/detect'</span>,</div><div class="line">    method:<span class="string">'POST'</span>,</div><div class="line">    headers:&#123; </div><div class="line">    <span class="string">'Content-Type'</span>:<span class="string">'application/x-www-form-urlencoded; charset=UTF-8'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> req = https.request(options, (res) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'statusCode:'</span>, res.statusCode);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'headers:'</span>, res.headers);</div><div class="line">  res.on(<span class="string">'data'</span>, (d) =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">''</span>+d);<span class="comment">//将buffer转为字符串或者使用d.toString()</span></div><div class="line">    <span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="string">''</span>+d);<span class="comment">//将buffer转成JSON</span></div><div class="line">    <span class="built_in">console</span>.log(b.image_id);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line">req.on(<span class="string">'error'</span>, (e) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.error(e);</div><div class="line">&#125;);</div><div class="line">req.write(data);</div><div class="line">req.end();</div></pre></td></tr></table></figure>
+<p>返回结果为：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"image_id"</span>: <span class="string">"SSoY2Bnir0iDPGdnKR6XzA=="</span>,</div><div class="line">	<span class="attr">"request_id"</span>: <span class="string">"1507806917,f98fb976-73c1-4788-817d-2ba2532b612f"</span>,</div><div class="line">	<span class="attr">"time_used"</span>: <span class="number">330</span>,</div><div class="line">	<span class="attr">"faces"</span>: [&#123;</div><div class="line">		<span class="attr">"face_rectangle"</span>: &#123;</div><div class="line">		<span class="attr">"width"</span>: <span class="number">217</span>,</div><div class="line">		<span class="attr">"top"</span>: <span class="number">232</span>,</div><div class="line">		<span class="attr">"left"</span>: <span class="number">379</span>,</div><div class="line">		<span class="attr">"height"</span>: <span class="number">217</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">"face_token"</span>: <span class="string">"c5bead2221a6a7d9b7e5134d15d03c5a"</span></div><div class="line">	&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="faces数组为图片中检测到的人脸"><a href="#faces数组为图片中检测到的人脸" class="headerlink" title="faces数组为图片中检测到的人脸"></a>faces数组为图片中检测到的人脸</h3><h4 id="nodejs发起POST请求步骤"><a href="#nodejs发起POST请求步骤" class="headerlink" title="nodejs发起POST请求步骤"></a>nodejs发起POST请求步骤</h4><ol>
+<li>引用https</li>
+<li>定义所要传输参数，比如data对象 </li>
+<li>定义发起请求的参数，host,path,method等，默认443端口</li>
+<li>https.request创建请求，请求内监听response</li>
+<li>监听请求错误</li>
+<li>写入请求数据，比如data对象</li>
+<li>结束请求</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/11/16/nodejs发起HTTPS，GET，POST请求Face++人脸识别/" class="archive-article-date">
+  	<time datetime="2017-11-16T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-https-face/">nodejs https face++</a></li></ul>
 	</div>
 
       
@@ -451,7 +448,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -551,7 +548,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    				<a href="/tags/CSS3/" style="font-size: 15px;">CSS3</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Ubuntu-Mysql-OSS/" style="font-size: 10px;">Ubuntu Mysql OSS</a> <a href="/tags/aws-mysql/" style="font-size: 10px;">aws  mysql</a> <a href="/tags/camera/" style="font-size: 10px;">camera</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/cheerio-nodejs-mysql/" style="font-size: 10px;">cheerio nodejs mysql</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/linux-nodejs/" style="font-size: 10px;">linux  nodejs</a> <a href="/tags/livestyle-ubuntu-download/" style="font-size: 10px;">livestyle ubuntu download</a> <a href="/tags/nginx-nodejs/" style="font-size: 15px;">nginx nodejs</a> <a href="/tags/nodejs-https-face/" style="font-size: 10px;">nodejs https face++</a> <a href="/tags/nodemailer-mail/" style="font-size: 10px;">nodemailer mail</a> <a href="/tags/nvm-nodejs/" style="font-size: 10px;">nvm nodejs</a> <a href="/tags/particles-js/" style="font-size: 10px;">particles.js</a> <a href="/tags/sublime-SFTP-linux/" style="font-size: 10px;">sublime SFTP linux</a> <a href="/tags/touchstart/" style="font-size: 10px;">touchstart</a> <a href="/tags/ubuntu-puppeteer/" style="font-size: 10px;">ubuntu puppeteer</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
     			</div>
     	</section>
     

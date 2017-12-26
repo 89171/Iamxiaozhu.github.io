@@ -173,7 +173,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-flex布局详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cheerio爬取网页数据，存储到MySQL数据库" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -183,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/08/flex布局详解/">flex布局详解</a>
+      <a class="article-title" href="/2017/08/26/cheerio爬取网页数据，存储到MySQL数据库/">cheerio爬取网页数据，存储到MySQL数据库</a>
     </h1>
   
 
@@ -191,22 +191,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>flex布局由flex-container和flex-item组成.水平轴称为main axis 竖直轴称为cross axis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">display:flex;//flex布局</div><div class="line">display:inline-flex;//flex布局,元素变为行内容器,宽度是里面内容宽度</div></pre></td></tr></table></figure></p>
-<h4 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">flex-direction:row;//设置main axis 为行显示(默认)</div><div class="line">flex-direction:row-reverse;//倒序</div><div class="line">flex-direction:column;//竖直排列</div><div class="line">flex-direction:column-reverse;</div></pre></td></tr></table></figure>
-        <p class="article-more-link">
-          <a  href="/2016/10/08/flex布局详解/#more">more >></a>
-        </p>
+        <h3 id="最近在做物流项目成本分析，需要爬取柴油价格数据，使用到了cheerio，cheerio实现了jQuery核心的一个子集。以下为爬取代码。"><a href="#最近在做物流项目成本分析，需要爬取柴油价格数据，使用到了cheerio，cheerio实现了jQuery核心的一个子集。以下为爬取代码。" class="headerlink" title="最近在做物流项目成本分析，需要爬取柴油价格数据，使用到了cheerio，cheerio实现了jQuery核心的一个子集。以下为爬取代码。"></a>最近在做物流项目成本分析，需要爬取柴油价格数据，使用到了cheerio，cheerio实现了jQuery核心的一个子集。以下为爬取代码。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//getHtml.js，获取HTML页面数据</span></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">gethtml</span>(<span class="params">url,callback</span>)</span>&#123;</div><div class="line">    http.get(url,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> data = <span class="string">""</span>;</div><div class="line">        res.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</div><div class="line">            data += chunk;</div><div class="line">        &#125;);</div><div class="line">        res.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            callback(data);</div><div class="line">        &#125;);</div><div class="line">    &#125;).on(<span class="string">"error"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        callback(<span class="literal">null</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">exports.gethtml = gethtml;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//getData.js，使用cheerio获取数据并存储到mysql数据库</span></div><div class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</div><div class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">'./getHtml'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> url = <span class="string">'http://ny.gold600.com/'</span>;</div><div class="line"></div><div class="line">server.gethtml(url,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(data)&#123;</div><div class="line">        <span class="keyword">var</span> $ = cheerio.load(data);</div><div class="line">        <span class="keyword">var</span> data = [];</div><div class="line">        <span class="keyword">var</span> list = $(<span class="string">'.oilTable tbody tr:nth-child(odd)'</span>);</div><div class="line"></div><div class="line">        list.each(<span class="function"><span class="keyword">function</span>(<span class="params">index,element</span>)</span>&#123;</div><div class="line">            <span class="keyword">let</span> city = $(element).find(<span class="string">'a'</span>).text().replace(<span class="regexp">/\s/g</span>,<span class="string">''</span>); <span class="comment">// 获取标题</span></div><div class="line">            <span class="keyword">let</span> price = $($(element).find(<span class="string">'td'</span>)[<span class="number">4</span>]).text().replace(<span class="regexp">/\s/g</span>,<span class="string">''</span>); <span class="comment">// 获取价格</span></div><div class="line">            <span class="keyword">let</span> time = $($(element).find(<span class="string">'td'</span>)[<span class="number">5</span>]).text().replace(<span class="regexp">/\s/g</span>,<span class="string">''</span>); <span class="comment">// 获取价格</span></div><div class="line">            data.push(&#123;city,price,time&#125;)</div><div class="line">            <span class="comment">// console.log(price)</span></div><div class="line">            <span class="comment">// console.log(element.children('td')[0].innerTEXT);</span></div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">var</span> str = <span class="string">''</span>;</div><div class="line">        data.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(index == <span class="number">0</span>)&#123;</div><div class="line">                str += <span class="string">'VALUES("'</span>+item.city+<span class="string">'",'</span>+item.price+<span class="string">',"'</span>+item.time+<span class="string">'")'</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                str += <span class="string">',("'</span>+item.city+<span class="string">'",'</span>+item.price+<span class="string">',"'</span>+item.time+<span class="string">'")'</span>;</div><div class="line">            &#125;   </div><div class="line">        &#125;)</div><div class="line">        <span class="built_in">console</span>.log(str)</div><div class="line">        <span class="keyword">var</span> connection = mysql.createConnection(&#123;</div><div class="line">            host:<span class="string">'127.0.0.1'</span>,</div><div class="line">            user:<span class="string">'root'</span>,</div><div class="line">            password:<span class="string">'******'</span>,</div><div class="line">            database:<span class="string">'price'</span></div><div class="line">        &#125;);</div><div class="line">        <span class="built_in">console</span>.log(str)</div><div class="line">        connection.connect();</div><div class="line">        connection.query(<span class="string">'DELETE FROM priceList'</span>);</div><div class="line">        connection.query(<span class="string">'ALTER TABLE priceList AUTO_INCREMENT=1'</span>);</div><div class="line">        connection.query(<span class="string">'INSERT priceList(city,price,time) '</span>+str,<span class="function"><span class="keyword">function</span>(<span class="params">error,results,fields</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(error) <span class="keyword">throw</span> error;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'The solution is:'</span>,results);</div><div class="line">            <span class="keyword">let</span> a = results[<span class="number">1</span>];</div><div class="line">            <span class="built_in">console</span>.log(a)</div><div class="line">        &#125;)</div><div class="line">        connection.end();</div><div class="line">        <span class="built_in">console</span>.log(value); <span class="comment">// Success!</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"error"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="需要注意的是使用-selector-find-selector-查找到的元素需要使用再次使用-进行包裹才能使用cheerio提供方法-如-text-。"><a href="#需要注意的是使用-selector-find-selector-查找到的元素需要使用再次使用-进行包裹才能使用cheerio提供方法-如-text-。" class="headerlink" title="需要注意的是使用\$(selector).find(selector)查找到的元素需要使用再次使用\$()进行包裹才能使用cheerio提供方法,如:text()。"></a>需要注意的是使用\$(selector).find(selector)查找到的元素需要使用再次使用\$()进行包裹才能使用cheerio提供方法,如:text()。</h4>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/08/flex布局详解/" class="archive-article-date">
-  	<time datetime="2016-10-08T08:30:30.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-08</time>
+      <a href="/2017/08/26/cheerio爬取网页数据，存储到MySQL数据库/" class="archive-article-date">
+  	<time datetime="2017-08-26T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-26</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheerio-nodejs-mysql/">cheerio nodejs mysql</a></li></ul>
 	</div>
 
       
@@ -226,7 +224,7 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-更改nginx默认端口，ubuntu更改nginx端口号" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -236,7 +234,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/09/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/08/13/更改nginx默认端口，ubuntu更改nginx端口号/">更改nginx默认端口，ubuntu更改nginx端口号</a>
     </h1>
   
 
@@ -244,24 +242,197 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h4 id="我们都知道nginx-默认使用80端口，有时候我们希望nginx运行在其他端口，就需要更改nginx配置"><a href="#我们都知道nginx-默认使用80端口，有时候我们希望nginx运行在其他端口，就需要更改nginx配置" class="headerlink" title="我们都知道nginx 默认使用80端口，有时候我们希望nginx运行在其他端口，就需要更改nginx配置"></a>我们都知道nginx 默认使用80端口，有时候我们希望nginx运行在其他端口，就需要更改nginx配置</h4><h4 id="nginx配置文件在-etc-nginx目录下的nginx-conf。在nginx-conf-gt-http选项末尾有引入两个目录下的文件分别为："><a href="#nginx配置文件在-etc-nginx目录下的nginx-conf。在nginx-conf-gt-http选项末尾有引入两个目录下的文件分别为：" class="headerlink" title="nginx配置文件在/etc/nginx目录下的nginx.conf。在nginx.conf-&gt;http选项末尾有引入两个目录下的文件分别为："></a>nginx配置文件在/etc/nginx目录下的nginx.conf。在nginx.conf-&gt;http选项末尾有引入两个目录下的文件分别为：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">http &#123;</div><div class="line">        <span class="comment">#   省略部分内容    </span></div><div class="line">        include /etc/nginx/conf.d/*.conf;</div><div class="line">        include /etc/nginx/sites-enabled/*;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="我们查看-etc-nginx-sites-enabled-目录，会找到一个default文件，在server选项下前两行就可以找到使用的80端口号："><a href="#我们查看-etc-nginx-sites-enabled-目录，会找到一个default文件，在server选项下前两行就可以找到使用的80端口号：" class="headerlink" title="我们查看/etc/nginx/sites-enabled/目录，会找到一个default文件，在server选项下前两行就可以找到使用的80端口号："></a>我们查看/etc/nginx/sites-enabled/目录，会找到一个default文件，在server选项下前两行就可以找到使用的80端口号：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 80 default_server;</div><div class="line">        listen [::]:80 default_server;</div></pre></td></tr></table></figure>
+<h4 id="将80端口号改为想使用的端口号，保存文件，如果没有启动nginx，启动即可。如果nginx已经在运行，重新加载即可。"><a href="#将80端口号改为想使用的端口号，保存文件，如果没有启动nginx，启动即可。如果nginx已经在运行，重新加载即可。" class="headerlink" title="将80端口号改为想使用的端口号，保存文件，如果没有启动nginx，启动即可。如果nginx已经在运行，重新加载即可。"></a>将80端口号改为想使用的端口号，保存文件，如果没有启动nginx，启动即可。如果nginx已经在运行，重新加载即可。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo nginx start <span class="comment">#运行nginx</span></div><div class="line">sudo nginx <span class="_">-s</span> reload <span class="comment">#重启nginx</span></div></pre></td></tr></table></figure>
+<p>查看nginx运行端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo netstat -anp | grep nginx</div></pre></td></tr></table></figure></p>
+<blockquote>
+<h4 id="本人使用nginx版本为nginx-1-10-3-ubuntu-，不同版本和系统配置文件可能略有差异"><a href="#本人使用nginx版本为nginx-1-10-3-ubuntu-，不同版本和系统配置文件可能略有差异" class="headerlink" title="本人使用nginx版本为nginx/1.10.3(ubuntu)，不同版本和系统配置文件可能略有差异"></a>本人使用nginx版本为nginx/1.10.3(ubuntu)，不同版本和系统配置文件可能略有差异</h4><h4 id="如有问题请留言，如果启用防火墙，则需开启对应端口，使用AWS服务器需要更改服务器安全组，添加响应入站规则，开启对应端口。"><a href="#如有问题请留言，如果启用防火墙，则需开启对应端口，使用AWS服务器需要更改服务器安全组，添加响应入站规则，开启对应端口。" class="headerlink" title="如有问题请留言，如果启用防火墙，则需开启对应端口，使用AWS服务器需要更改服务器安全组，添加响应入站规则，开启对应端口。"></a>如有问题请留言，如果启用防火墙，则需开启对应端口，使用AWS服务器需要更改服务器安全组，添加响应入站规则，开启对应端口。</h4></blockquote>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/08/09/hello-world/" class="archive-article-date">
-  	<time datetime="2016-08-09T04:59:16.217Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-09</time>
+      <a href="/2017/08/13/更改nginx默认端口，ubuntu更改nginx端口号/" class="archive-article-date">
+  	<time datetime="2017-08-13T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-13</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-nodejs/">nginx nodejs</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-nodejs使用nginx端口转发，端口映射,反向代理,子域名映射到不同端口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/09/nodejs使用nginx端口转发，端口映射,反向代理,子域名映射到不同端口/">nodejs使用nginx端口转发，端口映射,反向代理,子域名映射到不同端口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="工作中经常使用nginx将端口映射到另一个端口，或者子域名分别映射到不同端口。"><a href="#工作中经常使用nginx将端口映射到另一个端口，或者子域名分别映射到不同端口。" class="headerlink" title="工作中经常使用nginx将端口映射到另一个端口，或者子域名分别映射到不同端口。"></a>工作中经常使用nginx将端口映射到另一个端口，或者子域名分别映射到不同端口。</h4><h4 id="查看nginx-conf，可以知道我们可以将配置文件放在conf-d目录下-参考链接"><a href="#查看nginx-conf，可以知道我们可以将配置文件放在conf-d目录下-参考链接" class="headerlink" title="查看nginx.conf，可以知道我们可以将配置文件放在conf.d目录下.参考链接"></a>查看nginx.conf，可以知道我们可以将配置文件放在conf.d目录下.<a href="http://blog.csdn.net/w20101310/article/details/78835668" target="_blank" rel="external">参考链接</a></h4><h4 id="在conf-d中新建一个file-conf文件，文件名可以自己起，需要以-conf为后缀。"><a href="#在conf-d中新建一个file-conf文件，文件名可以自己起，需要以-conf为后缀。" class="headerlink" title="在conf.d中新建一个file.conf文件，文件名可以自己起，需要以.conf为后缀。"></a>在conf.d中新建一个file.conf文件，文件名可以自己起，需要以.conf为后缀。</h4><h3 id="下面的代码将8090端口转发到90端口"><a href="#下面的代码将8090端口转发到90端口" class="headerlink" title="下面的代码将8090端口转发到90端口"></a>下面的代码将8090端口转发到90端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">upstream ubuntu&#123;   <span class="comment">#这里ubuntu可以为其他自定义字符串，下方需要填写对应字符串</span></div><div class="line">    server 127.0.0.1:8090;  <span class="comment">#8090为需要转发的端口号</span></div><div class="line">&#125;</div><div class="line">server&#123;</div><div class="line">    listen 0.0.0.0:90;  <span class="comment">#90为转发到的端口号</span></div><div class="line">    server_name /*此处需要填写你服务器的IP地址*/;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Forward-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header Host <span class="variable">$http_host</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Nginx-Proxy <span class="literal">true</span>;</div><div class="line">        proxy_pass http://ubuntu;  <span class="comment">#与上方对应</span></div><div class="line">        proxy_redirect off;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="或者省略upstream定义，直接定义在proxy-pass"><a href="#或者省略upstream定义，直接定义在proxy-pass" class="headerlink" title="或者省略upstream定义，直接定义在proxy_pass"></a>或者省略upstream定义，直接定义在proxy_pass</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">    listen 0.0.0.0:90;  <span class="comment">#90为转发到的端口号</span></div><div class="line">    server_name /*此处需要填写你服务器的IP地址*/;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Forward-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header Host <span class="variable">$http_host</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Nginx-Proxy <span class="literal">true</span>;</div><div class="line">        proxy_pass http://127.0.0.1:8090;  <span class="comment">#8090为需要转发的端口号</span></div><div class="line">        proxy_redirect off;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="开启或重新加载nginx即可完成端口8090映射到90端口"><a href="#开启或重新加载nginx即可完成端口8090映射到90端口" class="headerlink" title="开启或重新加载nginx即可完成端口8090映射到90端口"></a>开启或重新加载nginx即可完成端口8090映射到90端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service nginx start <span class="comment">#开启</span></div><div class="line">sudo nginx <span class="_">-s</span> reload  <span class="comment">#重载</span></div></pre></td></tr></table></figure>
+<h3 id="子域名映射到服务器某个端口"><a href="#子域名映射到服务器某个端口" class="headerlink" title="子域名映射到服务器某个端口"></a>子域名映射到服务器某个端口</h3><h4 id="在conf-d目录下创建xiaozhu-conf文件（同样自定义文件名，以conf为文件后缀）。"><a href="#在conf-d目录下创建xiaozhu-conf文件（同样自定义文件名，以conf为文件后缀）。" class="headerlink" title="在conf.d目录下创建xiaozhu.conf文件（同样自定义文件名，以conf为文件后缀）。"></a>在conf.d目录下创建xiaozhu.conf文件（同样自定义文件名，以conf为文件后缀）。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">    listen 0.0.0.0:80;</div><div class="line">    server_name xiaozhu.10y.xyz;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Forward-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header Host <span class="variable">$http_host</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Nginx-Proxy <span class="literal">true</span>;</div><div class="line">        proxy_pass http://127.0.0.1:9000;</div><div class="line">        proxy_redirect off;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="执行重启操作，以应用更改"><a href="#执行重启操作，以应用更改" class="headerlink" title="执行重启操作，以应用更改"></a>执行重启操作，以应用更改</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service nginx start <span class="comment">#启用nginx</span></div><div class="line">sudo nginx <span class="_">-s</span> reload  <span class="comment">#重载</span></div></pre></td></tr></table></figure>
+<h4 id="访问xiaozhu-10y-xyz即可，如果xiaozhu-conf中server定义监听其他端口则需访问对应端口："><a href="#访问xiaozhu-10y-xyz即可，如果xiaozhu-conf中server定义监听其他端口则需访问对应端口：" class="headerlink" title="访问xiaozhu.10y.xyz即可，如果xiaozhu.conf中server定义监听其他端口则需访问对应端口："></a>访问xiaozhu.10y.xyz即可，如果xiaozhu.conf中server定义监听其他端口则需访问对应端口：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">    listen 0.0.0.0:90; <span class="comment">#需访问xiaozhu.10y.xyz:90</span></div><div class="line">    server_name xiaozhu.10y.xyz;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="将8000端口映射到某个路径下，定义location即可"><a href="#将8000端口映射到某个路径下，定义location即可" class="headerlink" title="将8000端口映射到某个路径下，定义location即可"></a>将8000端口映射到某个路径下，定义location即可</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">    listen 0.0.0.0:80;</div><div class="line">    server_name xiaozhu.10y.xyz;</div><div class="line"></div><div class="line">    location /public &#123;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Forward-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header Host <span class="variable">$http_host</span>;</div><div class="line">        proxy_<span class="built_in">set</span>_header X-Nginx-Proxy <span class="literal">true</span>;</div><div class="line">        proxy_pass http://127.0.0.1:8000;</div><div class="line">        proxy_redirect off;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="需要注意的是我们可以使用不同的conf-定义不同的server，也可以将server都定义到一个conf文件中。比如将本文中的file-conf和xiaozhu-conf都放入一个conf文件中。"><a href="#需要注意的是我们可以使用不同的conf-定义不同的server，也可以将server都定义到一个conf文件中。比如将本文中的file-conf和xiaozhu-conf都放入一个conf文件中。" class="headerlink" title="需要注意的是我们可以使用不同的conf 定义不同的server，也可以将server都定义到一个conf文件中。比如将本文中的file.conf和xiaozhu.conf都放入一个conf文件中。"></a>需要注意的是我们可以使用不同的conf 定义不同的server，也可以将server都定义到一个conf文件中。比如将本文中的file.conf和xiaozhu.conf都放入一个conf文件中。</h4><blockquote>
+<p>如有问题请留言，如果启用防火墙，则需开启对应端口，使用AWS服务器需要更改服务器安全组，添加响应入站规则，开启对应端口。</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/09/nodejs使用nginx端口转发，端口映射,反向代理,子域名映射到不同端口/" class="archive-article-date">
+  	<time datetime="2017-08-09T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-nodejs/">nginx nodejs</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ubuntu Linux定时备份数据库，并上传到阿里云OSS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/06/Ubuntu Linux定时备份数据库，并上传到阿里云OSS/">Ubuntu Linux定时备份数据库，并上传到阿里云OSS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="生产环境中可能会遇到各种各样的问题，为了防止数据丢失和容灾，定时备份数据库就显得很重要了。本文使用crontab定时运行shell脚本，shell脚本中备份MySQL到本地并上传到阿里云OSS对象存储。"><a href="#生产环境中可能会遇到各种各样的问题，为了防止数据丢失和容灾，定时备份数据库就显得很重要了。本文使用crontab定时运行shell脚本，shell脚本中备份MySQL到本地并上传到阿里云OSS对象存储。" class="headerlink" title="生产环境中可能会遇到各种各样的问题，为了防止数据丢失和容灾，定时备份数据库就显得很重要了。本文使用crontab定时运行shell脚本，shell脚本中备份MySQL到本地并上传到阿里云OSS对象存储。"></a>生产环境中可能会遇到各种各样的问题，为了防止数据丢失和容灾，定时备份数据库就显得很重要了。本文使用crontab定时运行shell脚本，shell脚本中备份MySQL到本地并上传到阿里云OSS对象存储。</h4><h4 id="先看shell脚本（shell脚本处理了数据库备份，数据库备份同步上传云端，七天前数据库备份删除）："><a href="#先看shell脚本（shell脚本处理了数据库备份，数据库备份同步上传云端，七天前数据库备份删除）：" class="headerlink" title="先看shell脚本（shell脚本处理了数据库备份，数据库备份同步上传云端，七天前数据库备份删除）："></a>先看shell脚本（shell脚本处理了数据库备份，数据库备份同步上传云端，七天前数据库备份删除）：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#dbBackUp.sh //本shell脚本名</span></div><div class="line">Now=$(date +<span class="string">"%Y%m%d_%H%M%S"</span>) <span class="comment">#创建当前时间字符串，注意：等号前后不要有空格</span></div><div class="line">sevenDaysAgo=`date +%F | sed <span class="string">'s/-//g'</span>`</div><div class="line">sevenDaysAgo=`expr <span class="variable">$sevenDaysAgo</span> - 7`</div><div class="line">rm ./backup/price_<span class="variable">$sevenDaysAgo</span>* <span class="comment">#移除七天之前的单库备份</span></div><div class="line">rm ./backup/all_<span class="variable">$sevenDaysAgo</span>*  <span class="comment">#移除七天之前的整库备份</span></div><div class="line"></div><div class="line"><span class="comment">#将price库备份并压缩到backup目录下，文件名为price_+时间</span></div><div class="line">mysqldump -uuser -ppassword price | gzip &gt; /home/ubuntu/learn/mysql/backup/price_<span class="variable">$Now</span>.sql.gz; </div><div class="line"><span class="comment">#将MySQL中所有数据备份并压缩到backup目录下，文件名为all_+时间</span></div><div class="line">mysqldump -uuser -ppassword --all-databases | gzip &gt; /home/ubuntu/learn/mysql/backup/all_<span class="variable">$Now</span>.sql.gz</div><div class="line"></div><div class="line"><span class="comment">#执行上传操作，将备份文件同步到云端，存储在阿里云对象存储OSS中</span></div><div class="line">NODE_ENV=<span class="variable">$Now</span> node /home/ubuntu/learn/mysql/upload.js</div></pre></td></tr></table></figure>
+<h4 id="数据库备份文件上传到OSS，需要使用npm-安装ali-oss和co这两个库"><a href="#数据库备份文件上传到OSS，需要使用npm-安装ali-oss和co这两个库" class="headerlink" title="数据库备份文件上传到OSS，需要使用npm 安装ali-oss和co这两个库"></a>数据库备份文件上传到OSS，需要使用npm 安装ali-oss和co这两个库</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* upload.js */</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> co = <span class="built_in">require</span>(<span class="string">'co'</span>);</div><div class="line"><span class="keyword">var</span> OSS = <span class="built_in">require</span>(<span class="string">'ali-oss'</span>);</div><div class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> OSS(&#123;</div><div class="line">  region: <span class="string">'oss-cn-beijing'</span>,<span class="comment">//上传region节点,具体参照阿里云提供列表</span></div><div class="line">  accessKeyId: <span class="string">'AccessKeyID'</span>,</div><div class="line">  accessKeySecret: <span class="string">'AccessKeySecret'</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">co(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>)</span>&#123;</div><div class="line">    client.useBucket(<span class="string">'data-backup-by-xiaozhu'</span>);<span class="comment">//上传到的Bucket名称</span></div><div class="line">    <span class="keyword">var</span> result = <span class="keyword">yield</span> client.put(<span class="string">'price_'</span>+process.env.NODE_ENV+<span class="string">'.sql.gz'</span>,<span class="string">'/home/ubuntu/learn/mysql/backup/price_'</span>+process.env.NODE_ENV+<span class="string">'.sql.gz'</span>);</div><div class="line">    <span class="keyword">var</span> result2 = <span class="keyword">yield</span> client.put(<span class="string">'all_'</span>+process.env.NODE_ENV+<span class="string">'.sql.gz'</span>,<span class="string">'/home/ubuntu/learn/mysql/backup/all_'</span>+process.env.NODE_ENV+<span class="string">'.sql.gz'</span>);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="有时候数据库备份的文件会很庞大，对象存储空间很可能会被塞满，我们就需要定时清理，阿里云OSS允许用户对Bucket设置生命周期规则，以自动淘汰过期掉的文件，节省存储空间。用户可以同时设置多条规则"><a href="#有时候数据库备份的文件会很庞大，对象存储空间很可能会被塞满，我们就需要定时清理，阿里云OSS允许用户对Bucket设置生命周期规则，以自动淘汰过期掉的文件，节省存储空间。用户可以同时设置多条规则" class="headerlink" title="有时候数据库备份的文件会很庞大，对象存储空间很可能会被塞满，我们就需要定时清理，阿里云OSS允许用户对Bucket设置生命周期规则，以自动淘汰过期掉的文件，节省存储空间。用户可以同时设置多条规则"></a>有时候数据库备份的文件会很庞大，对象存储空间很可能会被塞满，我们就需要定时清理，阿里云OSS允许用户对Bucket设置生命周期规则，以自动淘汰过期掉的文件，节省存储空间。用户可以同时设置多条规则</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* lifecycle.js */</span></div><div class="line"><span class="comment">/* 设置声明周期规则，自动回收七天之外的数据库备份 */</span></div><div class="line"><span class="keyword">var</span> co = <span class="built_in">require</span>(<span class="string">'co'</span>);</div><div class="line"><span class="keyword">var</span> OSS = <span class="built_in">require</span>(<span class="string">'ali-oss'</span>);</div><div class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> OSS(&#123;</div><div class="line">  region: <span class="string">'oss-cn-beijing'</span>,</div><div class="line">  accessKeyId: <span class="string">'AccessKeyID'</span>,</div><div class="line">  accessKeySecret: <span class="string">'AccessKeySecret'</span></div><div class="line">&#125;);</div><div class="line">co(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="keyword">yield</span> client.putBucketLifecycle(<span class="string">'data-backup-by-xiaozhu'</span>, <span class="string">'region'</span>, [</div><div class="line">    &#123; </div><div class="line">      id: <span class="string">'rule1'</span>,   <span class="comment">/*规则ID，用于标识一条规则，不能重复*/</span></div><div class="line">      status: <span class="string">'Enabled'</span>,   <span class="comment">/*是否生效*/</span></div><div class="line">      prefix: <span class="string">'price_'</span>,    <span class="comment">/*受影响的文件前缀，此规则只作用于符合前缀的文件*/</span></div><div class="line">      days: <span class="number">7</span>   <span class="comment">/*指定距文件最后修改时间N天过期*/</span></div><div class="line">    &#125;,&#123;</div><div class="line">      id:<span class="string">'rule2'</span>,</div><div class="line">      status:<span class="string">'Enabled'</span>,</div><div class="line">      prefix:<span class="string">'all_'</span>,</div><div class="line">      days:<span class="number">7</span></div><div class="line">    &#125;</div><div class="line">  ]);</div><div class="line">  <span class="built_in">console</span>.log(result);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="shell脚本完成了数据库备份和备份清理的操作，还需要进行定时执行shell脚本的操作，我们可以使用crontab。执行crontab-e命令，添加以下内容。"><a href="#shell脚本完成了数据库备份和备份清理的操作，还需要进行定时执行shell脚本的操作，我们可以使用crontab。执行crontab-e命令，添加以下内容。" class="headerlink" title="shell脚本完成了数据库备份和备份清理的操作，还需要进行定时执行shell脚本的操作，我们可以使用crontab。执行crontab -e命令，添加以下内容。"></a>shell脚本完成了数据库备份和备份清理的操作，还需要进行定时执行shell脚本的操作，我们可以使用crontab。执行crontab -e命令，添加以下内容。</h4><h4 id="如果第一次执行crontab会让选择使用什么编辑器来编辑，我们选择默认的nano即可。"><a href="#如果第一次执行crontab会让选择使用什么编辑器来编辑，我们选择默认的nano即可。" class="headerlink" title="如果第一次执行crontab会让选择使用什么编辑器来编辑，我们选择默认的nano即可。"></a>如果第一次执行crontab会让选择使用什么编辑器来编辑，我们选择默认的nano即可。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">30 1 * * * /bin/sh /home/ubuntu/learn/mysql/dbBackUp.sh</div><div class="line"><span class="comment">#每天1点30分 执行dbBackUp脚本</span></div></pre></td></tr></table></figure>
+<h4 id="输入完成之后按ctrl-X-退出，退出之后按提示输入Y，然后回车即可保存。（命令行窗口下方提示的快捷键，-代表Ctrl，M代表Alt）"><a href="#输入完成之后按ctrl-X-退出，退出之后按提示输入Y，然后回车即可保存。（命令行窗口下方提示的快捷键，-代表Ctrl，M代表Alt）" class="headerlink" title="输入完成之后按ctrl + X 退出，退出之后按提示输入Y，然后回车即可保存。（命令行窗口下方提示的快捷键，^代表Ctrl，M代表Alt）"></a>输入完成之后按ctrl + X 退出，退出之后按提示输入Y，然后回车即可保存。（命令行窗口下方提示的快捷键，^代表Ctrl，M代表Alt）</h4><h4 id="我们也可以直接编辑-etc-crontab来执行定时任务。区别为：crontab-e是某个用户的周期计划任务；-etc-crontab是系统的周期任务"><a href="#我们也可以直接编辑-etc-crontab来执行定时任务。区别为：crontab-e是某个用户的周期计划任务；-etc-crontab是系统的周期任务" class="headerlink" title="我们也可以直接编辑/etc/crontab来执行定时任务。区别为：crontab -e是某个用户的周期计划任务；/etc/crontab是系统的周期任务"></a>我们也可以直接编辑/etc/crontab来执行定时任务。区别为：crontab -e是某个用户的周期计划任务；/etc/crontab是系统的周期任务</h4>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/06/Ubuntu Linux定时备份数据库，并上传到阿里云OSS/" class="archive-article-date">
+  	<time datetime="2017-08-06T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu-Mysql-OSS/">Ubuntu Mysql OSS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-清除微信浏览器缓存问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/26/清除微信浏览器缓存问题/">彻底清除微信缓存方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存-用之前的方法无法清除缓存"><a href="#在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存-用之前的方法无法清除缓存" class="headerlink" title="在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存,用之前的方法无法清除缓存"></a>在做南航母亲节活动的时候在微信ios客户端遇到一个比较顽固的js文件缓存,用之前的方法无法清除缓存</h5><p>平常所用清除微信浏览器缓存的方法:</p>
+<ul>
+<li>加版本号</li>
+<li>彻底关闭微信重新进入,</li>
+<li>退出重登</li>
+</ul>
+<p>在以前的工作中上面三步基本都能达到清除效果</p>
+<p>如果在微信安卓端,可以使用debugx5.qq.com来清除文件缓存,但是ios使用的是苹果系统浏览器内核,无法解决</p>
+<p>最后使用了一种方法:<br>删除服务器端文件&gt;微信访问服务器端删除的文件&gt;将删除的文件重新放回服务器&gt;缓存清除</p>
+<p>麻烦是麻烦,但是总算是清掉了缓存……</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/26/清除微信浏览器缓存问题/" class="archive-article-date">
+  	<time datetime="2017-07-26T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -281,7 +452,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -381,7 +552,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    				<a href="/tags/CSS3/" style="font-size: 15px;">CSS3</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Ubuntu-Mysql-OSS/" style="font-size: 10px;">Ubuntu Mysql OSS</a> <a href="/tags/aws-mysql/" style="font-size: 10px;">aws  mysql</a> <a href="/tags/camera/" style="font-size: 10px;">camera</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/cheerio-nodejs-mysql/" style="font-size: 10px;">cheerio nodejs mysql</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/linux-nodejs/" style="font-size: 10px;">linux  nodejs</a> <a href="/tags/livestyle-ubuntu-download/" style="font-size: 10px;">livestyle ubuntu download</a> <a href="/tags/nginx-nodejs/" style="font-size: 15px;">nginx nodejs</a> <a href="/tags/nodejs-https-face/" style="font-size: 10px;">nodejs https face++</a> <a href="/tags/nodemailer-mail/" style="font-size: 10px;">nodemailer mail</a> <a href="/tags/nvm-nodejs/" style="font-size: 10px;">nvm nodejs</a> <a href="/tags/particles-js/" style="font-size: 10px;">particles.js</a> <a href="/tags/sublime-SFTP-linux/" style="font-size: 10px;">sublime SFTP linux</a> <a href="/tags/touchstart/" style="font-size: 10px;">touchstart</a> <a href="/tags/ubuntu-puppeteer/" style="font-size: 10px;">ubuntu puppeteer</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
     			</div>
     	</section>
     

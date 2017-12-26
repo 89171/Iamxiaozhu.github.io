@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>windows使用nvm管理nodejs版本，安装nvm | I am Xiaozhu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvmnvm的Windows安装包下载地址或者使用npm安装nvmw1npm install -g nvmw
+nvm -h 显示帮助123456789101112131415161718nvm arch                     : Show if node is running in 32 or">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows使用nvm管理nodejs版本，安装nvm">
+<meta property="og:url" content="http://yoursite.com/2017/09/09/windows使用nvm管理nodejs版本，安装nvm/index.html">
+<meta property="og:site_name" content="I am Xiaozhu">
+<meta property="og:description" content="nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvmnvm的Windows安装包下载地址或者使用npm安装nvmw1npm install -g nvmw
+nvm -h 显示帮助123456789101112131415161718nvm arch                     : Show if node is running in 32 or">
+<meta property="og:updated_time" content="2017-12-26T10:20:19.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows使用nvm管理nodejs版本，安装nvm">
+<meta name="twitter:description" content="nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvmnvm的Windows安装包下载地址或者使用npm安装nvmw1npm install -g nvmw
+nvm -h 显示帮助123456789101112131415161718nvm arch                     : Show if node is running in 32 or">
+  
+    <link rel="alternative" href="/atom.xml" title="I am Xiaozhu" type="application/atom+xml">
+  
+  <style>
+  .csdn {
+      background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAfCAQAAAAltKd9AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAyAAAAMgADzko2IAAAHOSURBVEjHzdQ7T5NRHMfxD9CqtVK0KiRa0cEJEjc3iTdWBxbfgoO3t+Bg4mB0JHFyNCEaE3FzcTMRiDFR4w2jiKZNELFFbgUeB0LFnqe2ZeJ/tvM7+Z7/5ZwfWy1aGjiTkNWuS5euyvkpeQUl0xbrg1rsdUyfXj1267BDoqItW/JLyScjbpupDUk54ZYXZkV11iudtSBJpz3wsy5ibT2Visccdcd0g5BIZEhbHOaU0SYgkciN9YlsjHMG5QL4qoJxX4zLV/Y65XTLOOBNmE2/ieC+Zc9c1iutNZjpdu0Oy1RjjhgLMEXX7G/gpW2IVjcDTMnFqtIbiB5fqzCrrjeP4UqQz8uYtv+3JEg6GyhPTDYP2iYbKB+bK2kNlLan+W7EgcoWAiWzGdC8YqD029U8aMG7QOlzfjMlDlgMHsCkgYYcFCoWMOWkQ0GXzsiaULRaH/T3xgF3dQR65LMRzxV8U/ZbUkpCzk4HvXYvDplwVamm66yYN+uHGXPmrYhEBmtll3QhxkjqWlp8occ9bMDw19aluGavx3fDxiRkpetO7LHR2iDK3ntk2AclLSIJbVXIyJI5Bfe9jZtaXPuz9snplvxnf8mEooJ8zMfaQvEH5RgdMHE82RMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMTAtMjVUMDk6Mzg6MTMrMDg6MDDPpMBpAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTEwLTI1VDA5OjM4OjEzKzA4OjAwvvl41QAAAE50RVh0c29mdHdhcmUASW1hZ2VNYWdpY2sgNi44LjgtMTAgUTE2IHg4Nl82NCAyMDE1LTA3LTE5IGh0dHA6Ly93d3cuaW1hZ2VtYWdpY2sub3JnBQycNQAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMzczql24IwAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAA0MjdG+c6nAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE0NDU3MzcwOTN1Mu6aAAAAE3RFWHRUaHVtYjo6U2l6ZQA1Ljc5S0JCTwY3OAAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2hvbWUvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vc3JjLzExODg2LzExODg2NTMucG5nAb4SuwAAAABJRU5ErkJggg==) 50% no-repeat #aaf;
+      background-size: 20px 20px;
+      border:1px solid #aaf;
+  }
+  </style>
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/picture.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiaozhu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">专注于一件事</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/Iamxiaozhu" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="csdn" target="_blank" href="http://blog.csdn.net/w20101310" title="csdn">csdn</a>
+		        
+			</div>
+		</nav>
+		 <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Xiaozhu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/picture.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiaozhu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">专注于一件事</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Iamxiaozhu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="csdn" target="_blank" href="http://blog.csdn.net/w20101310" title="csdn">csdn</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-windows使用nvm管理nodejs版本，安装nvm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      windows使用nvm管理nodejs版本，安装nvm
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvm"><a href="#nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvm" class="headerlink" title="nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvm"></a>nodejs版本管理最常使用的就是n和nvm，但是n并不支持Windows，所以需要使用nvm</h3><h3 id="nvm的Windows安装包下载地址"><a href="#nvm的Windows安装包下载地址" class="headerlink" title="nvm的Windows安装包下载地址"></a>nvm的Windows安装包<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="external">下载地址</a></h3><h3 id="或者使用npm安装nvmw"><a href="#或者使用npm安装nvmw" class="headerlink" title="或者使用npm安装nvmw"></a>或者使用npm安装nvmw</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nvmw</div></pre></td></tr></table></figure>
+<h3 id="nvm-h-显示帮助"><a href="#nvm-h-显示帮助" class="headerlink" title="nvm -h 显示帮助"></a>nvm -h 显示帮助</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">nvm arch                     : Show <span class="keyword">if</span> node is running <span class="keyword">in</span> 32 or 64 bit mode.</div><div class="line">nvm install &lt;version&gt; [arch] : The version can be a node.js version or <span class="string">"latest"</span> <span class="keyword">for</span> the latest stable version.</div><div class="line">                                 Optionally specify whether to install the 32 or 64 bit version (defaults to system arch).</div><div class="line">                                 Set [arch] to <span class="string">"all"</span> to install 32 AND 64 bit versions.</div><div class="line">                                 Add --insecure to the end of this <span class="built_in">command</span> to bypass SSL validation of the remote download server.</div><div class="line">nvm list [available]         : List the node.js installations. Type <span class="string">"available"</span> at the end to see what can be installed. Aliased as ls.</div><div class="line">nvm on                       : Enable node.js version management.</div><div class="line">nvm off                      : Disable node.js version management.</div><div class="line">nvm proxy [url]              : Set a proxy to use <span class="keyword">for</span> downloads. Leave [url] blank to see the current proxy.</div><div class="line">                                 Set [url] to <span class="string">"none"</span> to remove the proxy.</div><div class="line">nvm node_mirror [url]        : Set the node mirror. Defaults to https://nodejs.org/dist/. Leave [url] blank to use default url.</div><div class="line">nvm npm_mirror [url]         : Set the npm mirror. Defaults to https://github.com/npm/npm/archive/. Leave [url] blank to default url.</div><div class="line">nvm uninstall &lt;version&gt;      : The version must be a specific version.</div><div class="line">nvm use [version] [arch]     : Switch to use the specified version. Optionally specify 32/64bit architecture.</div><div class="line">                                 nvm use &lt;arch&gt; will <span class="built_in">continue</span> using the selected version, but switch to 32/64 bit mode.</div><div class="line">nvm root [path]              : Set the directory <span class="built_in">where</span> nvm should store different versions of node.js.</div><div class="line">                                 If &lt;path&gt; is not <span class="built_in">set</span>, the current root will be displayed.</div><div class="line">nvm version                  : Displays the current running version of nvm <span class="keyword">for</span> Windows. Aliased as v.</div></pre></td></tr></table></figure>
+<h3 id="使用nvm"><a href="#使用nvm" class="headerlink" title="使用nvm"></a>使用nvm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">nvm install v8.9.0  //安装8.9.0版本nodejs</div><div class="line">nvm use v8.9.0 //当前命令行窗口切换nodejs到v8.9.0</div><div class="line">nvm switch v8.9.0 //切换到8.9.0版本为默认使用版本</div><div class="line">nvm list //显示本地已安装的nodejs版本</div><div class="line">nvm list available//显示可安装的nodejs版本</div><div class="line">nvm arch //查看nodejs运行为32位还是64位</div><div class="line">nvm off //关闭nvm</div><div class="line">nvm on //开启nvm</div><div class="line">nvm version //nvm版本</div><div class="line">nvm root c://nodePath //设置不同版本nodejs安装的根路径</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/09/09/windows使用nvm管理nodejs版本，安装nvm/" class="archive-article-date">
+  	<time datetime="2017-09-09T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-09-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvm-nodejs/">nvm nodejs</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/09/11/代码触发，手动触发touchstart事件，touch事件，click事件，自定义事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          代码触发，手动触发touchstart事件，touch事件，click事件，自定义事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/06/阿里云企业邮箱使用nodemailer,使用nodemailer发送错误信息/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿里云企业邮箱使用nodemailer,使用nodemailer发送错误信息</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Xiaozhu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS3/" style="font-size: 15px;">CSS3</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Ubuntu-Mysql-OSS/" style="font-size: 10px;">Ubuntu Mysql OSS</a> <a href="/tags/aws-mysql/" style="font-size: 10px;">aws  mysql</a> <a href="/tags/camera/" style="font-size: 10px;">camera</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/cheerio-nodejs-mysql/" style="font-size: 10px;">cheerio nodejs mysql</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/linux-nodejs/" style="font-size: 10px;">linux  nodejs</a> <a href="/tags/livestyle-ubuntu-download/" style="font-size: 10px;">livestyle ubuntu download</a> <a href="/tags/nginx-nodejs/" style="font-size: 15px;">nginx nodejs</a> <a href="/tags/nodejs-https-face/" style="font-size: 10px;">nodejs https face++</a> <a href="/tags/nodemailer-mail/" style="font-size: 10px;">nodemailer mail</a> <a href="/tags/nvm-nodejs/" style="font-size: 10px;">nvm nodejs</a> <a href="/tags/particles-js/" style="font-size: 10px;">particles.js</a> <a href="/tags/sublime-SFTP-linux/" style="font-size: 10px;">sublime SFTP linux</a> <a href="/tags/touchstart/" style="font-size: 10px;">touchstart</a> <a href="/tags/ubuntu-puppeteer/" style="font-size: 10px;">ubuntu puppeteer</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.woleigequ.net/">我嘞个趣</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://huijia-sy.com/">慧嘉实业</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">认认真真&lt;br&gt;&lt;br&gt;专注于一件事&lt;br&gt;执着于技术</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

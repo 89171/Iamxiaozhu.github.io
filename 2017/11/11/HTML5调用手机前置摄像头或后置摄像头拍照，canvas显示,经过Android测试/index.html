@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试 | I am Xiaozhu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTML5可以通过调用navigator.getUserMedia来获取手机设备摄像头，兼容性写法如下1window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+但是n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试/index.html">
+<meta property="og:site_name" content="I am Xiaozhu">
+<meta property="og:description" content="HTML5可以通过调用navigator.getUserMedia来获取手机设备摄像头，兼容性写法如下1window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+但是n">
+<meta property="og:updated_time" content="2017-12-26T10:21:29.212Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试">
+<meta name="twitter:description" content="HTML5可以通过调用navigator.getUserMedia来获取手机设备摄像头，兼容性写法如下1window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+但是n">
+  
+    <link rel="alternative" href="/atom.xml" title="I am Xiaozhu" type="application/atom+xml">
+  
+  <style>
+  .csdn {
+      background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAfCAQAAAAltKd9AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAyAAAAMgADzko2IAAAHOSURBVEjHzdQ7T5NRHMfxD9CqtVK0KiRa0cEJEjc3iTdWBxbfgoO3t+Bg4mB0JHFyNCEaE3FzcTMRiDFR4w2jiKZNELFFbgUeB0LFnqe2ZeJ/tvM7+Z7/5ZwfWy1aGjiTkNWuS5euyvkpeQUl0xbrg1rsdUyfXj1267BDoqItW/JLyScjbpupDUk54ZYXZkV11iudtSBJpz3wsy5ibT2Visccdcd0g5BIZEhbHOaU0SYgkciN9YlsjHMG5QL4qoJxX4zLV/Y65XTLOOBNmE2/ieC+Zc9c1iutNZjpdu0Oy1RjjhgLMEXX7G/gpW2IVjcDTMnFqtIbiB5fqzCrrjeP4UqQz8uYtv+3JEg6GyhPTDYP2iYbKB+bK2kNlLan+W7EgcoWAiWzGdC8YqD029U8aMG7QOlzfjMlDlgMHsCkgYYcFCoWMOWkQ0GXzsiaULRaH/T3xgF3dQR65LMRzxV8U/ZbUkpCzk4HvXYvDplwVamm66yYN+uHGXPmrYhEBmtll3QhxkjqWlp8occ9bMDw19aluGavx3fDxiRkpetO7LHR2iDK3ntk2AclLSIJbVXIyJI5Bfe9jZtaXPuz9snplvxnf8mEooJ8zMfaQvEH5RgdMHE82RMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMTAtMjVUMDk6Mzg6MTMrMDg6MDDPpMBpAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTEwLTI1VDA5OjM4OjEzKzA4OjAwvvl41QAAAE50RVh0c29mdHdhcmUASW1hZ2VNYWdpY2sgNi44LjgtMTAgUTE2IHg4Nl82NCAyMDE1LTA3LTE5IGh0dHA6Ly93d3cuaW1hZ2VtYWdpY2sub3JnBQycNQAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMzczql24IwAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAA0MjdG+c6nAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE0NDU3MzcwOTN1Mu6aAAAAE3RFWHRUaHVtYjo6U2l6ZQA1Ljc5S0JCTwY3OAAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2hvbWUvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vc3JjLzExODg2LzExODg2NTMucG5nAb4SuwAAAABJRU5ErkJggg==) 50% no-repeat #aaf;
+      background-size: 20px 20px;
+      border:1px solid #aaf;
+  }
+  </style>
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/picture.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiaozhu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">专注于一件事</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/Iamxiaozhu" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="csdn" target="_blank" href="http://blog.csdn.net/w20101310" title="csdn">csdn</a>
+		        
+			</div>
+		</nav>
+		 <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Xiaozhu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/picture.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiaozhu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">专注于一件事</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Iamxiaozhu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="csdn" target="_blank" href="http://blog.csdn.net/w20101310" title="csdn">csdn</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTML5可以通过调用navigator-getUserMedia来获取手机设备摄像头，兼容性写法如下"><a href="#HTML5可以通过调用navigator-getUserMedia来获取手机设备摄像头，兼容性写法如下" class="headerlink" title="HTML5可以通过调用navigator.getUserMedia来获取手机设备摄像头，兼容性写法如下"></a>HTML5可以通过调用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/getUserMedia" target="_blank" rel="external">navigator.getUserMedia</a>来获取手机设备摄像头，兼容性写法如下</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;</div></pre></td></tr></table></figure>
+<h3 id="但是navigator-getUserMediau已经从-Web-标准中删除，虽然部分浏览器可以使用，生产环境中还是要做好兼容。新的API更替为MediaDevices-getUserMedia。MediaDevices-getUserMedia可以通过video的facingMode属性指定调用手机的前置或后置摄像头"><a href="#但是navigator-getUserMediau已经从-Web-标准中删除，虽然部分浏览器可以使用，生产环境中还是要做好兼容。新的API更替为MediaDevices-getUserMedia。MediaDevices-getUserMedia可以通过video的facingMode属性指定调用手机的前置或后置摄像头" class="headerlink" title="但是navigator.getUserMediau已经从 Web 标准中删除，虽然部分浏览器可以使用，生产环境中还是要做好兼容。新的API更替为MediaDevices.getUserMedia。MediaDevices.getUserMedia可以通过video的facingMode属性指定调用手机的前置或后置摄像头"></a>但是navigator.getUserMediau已经从 Web 标准中删除，虽然部分浏览器可以使用，生产环境中还是要做好兼容。新的API更替为<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MediaDevices/getUserMedia" target="_blank" rel="external">MediaDevices.getUserMedia</a>。MediaDevices.getUserMedia可以通过video的facingMode属性指定调用手机的前置或后置摄像头</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">video:&#123; <span class="string">'facingMode'</span>: <span class="string">"user"</span> &#125;<span class="comment">//调用前置摄像头</span></div><div class="line">video: &#123; facingMode: &#123; exact: <span class="string">"environment"</span> &#125; &#125;<span class="comment">//后置</span></div></pre></td></tr></table></figure>
+<p>具体代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no&quot;&gt;</div><div class="line">    &lt;title&gt;Document1&lt;/title&gt;</div><div class="line">    &lt;style type=&apos;text/css&apos;&gt;</div><div class="line">        * &#123; margin: 0; padding: 0; &#125;</div><div class="line"></div><div class="line">        html, body &#123; height: 100%; &#125;</div><div class="line"></div><div class="line">        .flex &#123; display: flex; &#125;</div><div class="line"></div><div class="line">        .flex-row &#123; flex-direction: row; justify-content: space-around; align-items: center; &#125;</div><div class="line"></div><div class="line">        .flex-column &#123; flex-direction: column; justify-content: flex-start; align-items: center; &#125;</div><div class="line"></div><div class="line">        body &#123; overflow: auto; background: #fff; &#125;</div><div class="line"></div><div class="line">        .title &#123; width: 920px; padding: 30px; align-items: flex-end; &#125;</div><div class="line"></div><div class="line">        .title h1 &#123; padding-bottom: 20px; font-size: 38px; color: #ffffff; text-shadow: 0 1px 3px #222222; &#125;</div><div class="line"></div><div class="line">        .title p &#123; font-size: 18px; color: #f5f5f5; text-shadow: 0 1px 3px #565656; &#125;</div><div class="line"></div><div class="line">        .wrap &#123; width: 1220px; &#125;</div><div class="line"></div><div class="line">        .wrap .reference &#123; position: relative; padding: 10px; background-color: rgba(255, 255, 255, 0); border-radius: 10px; box-shadow: 0 0 20px #a1a19f; &#125;</div><div class="line"></div><div class="line">        .wrap .reference img.face &#123; display: block; width: 320px; height: auto; border-radius: 10px; &#125;</div><div class="line"></div><div class="line">        .wrap .reference img.toggle &#123; position: absolute; right: 10px; top: 10px; width: 50px; height: 50px; &#125;</div><div class="line"></div><div class="line">        .wrap .scan video &#123; background-color: rgba(0, 0, 0, .8); border-radius: 10px; &#125;</div><div class="line"></div><div class="line">        .wrap .control &#123; justify-content: space-around; height: 456px; padding: 0 20px; &#125;</div><div class="line"></div><div class="line">        .wrap .control p &#123; width: 160px; height: 60px; background-color: #f9f9f9; text-align: center; line-height: 60px; color: #ffffff; font-size: 24px; border-radius: 8px; cursor: pointer; box-shadow: -8px -8px 150px -8px #b2b3b5 inset, 0 0 5px #222222; text-shadow: 0 0 1px #222222; transition: .5s; &#125;</div><div class="line"></div><div class="line">        .wrap .control p:hover &#123; box-shadow: -8px -8px 150px -8px #50c4f1 inset, 0 0 5px #ffffff; &#125;</div><div class="line"></div><div class="line">        .wrap .scan &#123; position: relative; overflow: hidden; &#125;</div><div class="line"></div><div class="line">        .wrap .scan .strainer &#123; position: absolute; top: 10px; width: 320px; z-index: 999; height: 3px; &#125;</div><div class="line"></div><div class="line">        .wrap .scan .capture &#123; width: 320px; height: 456px; &#125;</div><div class="line"></div><div class="line">        .wrap .scan .strainer.on &#123; background: linear-gradient(to left, transparent, #0bffb2, transparent); animation: scan 1s linear infinite; &#125;</div><div class="line"></div><div class="line">        @keyframes scan &#123;</div><div class="line">            0% &#123; top: 10px; &#125;</div><div class="line">            50% &#123; top: 456px; &#125;</div><div class="line">            100% &#123; top: 10px; &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &lt;/style&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;vconsole.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;title flex flex-column&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;wrap flex flex-row&quot;&gt;</div><div class="line">    &lt;div class=&quot;control flex flex-column&quot;&gt;</div><div class="line">        &lt;p class=&quot;open&quot;&gt;开启摄像头&lt;/p&gt;</div><div class="line">        &lt;p class=&quot;recognition&quot;&gt;显示到Canvas&lt;/p&gt;</div><div class="line">        &lt;p class=&quot;close&quot;&gt;关闭摄像头&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;scan reference&quot;&gt;</div><div class="line">        &lt;div class=&quot;strainer&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;video class=&quot;capture&quot; width=&quot;320&quot; height=&quot;456&quot; src=&quot;&quot;&gt;&lt;/video&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        var buffer;</div><div class="line">        var oCapture = document.querySelector(&quot;.capture&quot;),</div><div class="line">        open = document.querySelector(&quot;.open&quot;),</div><div class="line">        recognition = document.querySelector(&quot;.recognition&quot;),</div><div class="line">        close = document.querySelector(&quot;.close&quot;);</div><div class="line">        var control = document.querySelector(&quot;.control&quot;);</div><div class="line"></div><div class="line">        window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;</div><div class="line">        </div><div class="line">        function invokingCarera()&#123;</div><div class="line">            if(navigator.mediaDevices&amp;&amp;navigator.mediaDevices.getUserMedia)&#123;</div><div class="line">                navigator.mediaDevices.getUserMedia(&#123;</div><div class="line">                    &apos;audio&apos;:true,</div><div class="line">                    &apos;video&apos;:&#123; &apos;facingMode&apos;: &quot;user&quot; &#125;//调用前置摄像头，后置摄像头使用video: &#123; facingMode: &#123; exact: &quot;environment&quot; &#125; &#125;</div><div class="line">                &#125;)</div><div class="line">                .then(function(mediaStream) &#123;console.log(555);getVideoStream(mediaStream)&#125;)</div><div class="line">                .catch(function(error) &#123; console.log(666);console.log(error) &#125;)</div><div class="line">            &#125;else if(navigator.getUserMedia)&#123;</div><div class="line">                navigator.getUserMedia(&#123;</div><div class="line">                    &apos;video&apos;:true,</div><div class="line">                    &apos;audio&apos;:true</div><div class="line">                &#125;,getVideoStream,getFail)</div><div class="line">            &#125;else&#123;</div><div class="line">                alert(&apos;不支持摄像头调用！&apos;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        //调用成功</div><div class="line">        function getVideoStream(stream)&#123;</div><div class="line">            buffer = stream;</div><div class="line">            if(oCapture.mozSrcObject !== undefined)&#123;</div><div class="line">                oCapture.mozSrcObject = buffer;</div><div class="line">            &#125;else&#123;</div><div class="line">                oCapture.src = window.URL &amp;&amp; window.URL.createObjectURL(buffer);                </div><div class="line">            &#125;</div><div class="line">            oCapture.play();</div><div class="line">        &#125;</div><div class="line">        function getFail()&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        recognition.onclick = function()&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        control.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">            e = e || window.event;</div><div class="line">            var className = e.target.className;</div><div class="line">            switch(className)&#123;</div><div class="line">                case &apos;open&apos;:</div><div class="line">                invokingCarera();</div><div class="line">                break;</div><div class="line">                case &apos;close&apos;:</div><div class="line">                closeCamera();</div><div class="line">                break;</div><div class="line">                case &apos;recognition&apos;:</div><div class="line">                screenShot();</div><div class="line">                break;</div><div class="line">                default:</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        function closeCamera()&#123;</div><div class="line">            buffer&amp;&amp;buffer.getTracks()[1].stop();//关闭摄像头</div><div class="line">        &#125;        </div><div class="line">        window.requestAnimFrame = (function()&#123;</div><div class="line">          return  window.requestAnimationFrame       ||</div><div class="line">                  window.webkitRequestAnimationFrame ||</div><div class="line">                  window.mozRequestAnimationFrame    ||</div><div class="line">                  function( callback )&#123;</div><div class="line">                    window.setTimeout(callback, 1000 / 60);</div><div class="line">                  &#125;;</div><div class="line">        &#125;)();</div><div class="line">        function screenShot()&#123;</div><div class="line">            var canvas = document.createElement(&apos;canvas&apos;);</div><div class="line">            canvas.width=320,canvas.height = 456;</div><div class="line">            document.querySelector(&quot;.wrap&quot;).appendChild(canvas);</div><div class="line">            var ctx =  canvas.getContext(&apos;2d&apos;);</div><div class="line">            function drawVideo()&#123;</div><div class="line">                ctx.drawImage(oCapture,0,0,320,456);</div><div class="line">                ctx.font = &quot;30px sans-serif&quot;;</div><div class="line">                ctx.fillStyle = &quot;blue&quot;;</div><div class="line">                ctx.fillText(&quot;请眨眼&quot;, 50, 50);</div><div class="line">                requestAnimationFrame(drawVideo);</div><div class="line">            &#125;</div><div class="line">            window.requestAnimationFrame(drawVideo);</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="以上代码并没有进行太多的错误处理，比如用户拒绝授权访问摄像头或浏览器不支持等情况，生产环境使用需添加错误处理代码"><a href="#以上代码并没有进行太多的错误处理，比如用户拒绝授权访问摄像头或浏览器不支持等情况，生产环境使用需添加错误处理代码" class="headerlink" title="以上代码并没有进行太多的错误处理，比如用户拒绝授权访问摄像头或浏览器不支持等情况，生产环境使用需添加错误处理代码."></a>以上代码并没有进行太多的错误处理，比如用户拒绝授权访问摄像头或浏览器不支持等情况，生产环境使用需添加错误处理代码.</h4><h4 id="以上代码在PC端和Android手机端和微信测试通过，IOS下浏览器均不支持，据说IOS11会开放权限。"><a href="#以上代码在PC端和Android手机端和微信测试通过，IOS下浏览器均不支持，据说IOS11会开放权限。" class="headerlink" title="以上代码在PC端和Android手机端和微信测试通过，IOS下浏览器均不支持，据说IOS11会开放权限。"></a>以上代码在PC端和Android手机端和微信测试通过，IOS下浏览器均不支持，据说IOS11会开放权限。</h4><h1 id="注意，以上HTML需要在HTTPS下访问方可正常工作"><a href="#注意，以上HTML需要在HTTPS下访问方可正常工作" class="headerlink" title="注意，以上HTML需要在HTTPS下访问方可正常工作"></a>注意，以上HTML需要在HTTPS下访问方可正常工作</h1><h3 id="查看在线DEMO，如果使用微信访问可能被屏蔽，微信打开链接后点击右下角“访问原网页”"><a href="#查看在线DEMO，如果使用微信访问可能被屏蔽，微信打开链接后点击右下角“访问原网页”" class="headerlink" title="查看在线DEMO，如果使用微信访问可能被屏蔽，微信打开链接后点击右下角“访问原网页”"></a><a href="https://catsanddogs.oss-cn-beijing.aliyuncs.com/faceTrance3.html" target="_blank" rel="external">查看在线DEMO</a>，如果使用微信访问可能被屏蔽，微信打开链接后点击右下角“访问原网页”</h3><h3 id="如需本地测试请使用Chrome插件：web-server"><a href="#如需本地测试请使用Chrome插件：web-server" class="headerlink" title="如需本地测试请使用Chrome插件：web-server;"></a>如需本地测试请使用Chrome插件：<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=zh-CN" target="_blank" rel="external">web-server</a>;</h3><h3 id="webserver使用方法：chrome-apps-gt-web-server-gt-choose-folder-勾选-Show-Advanced-Settings下Set-CORS-Headers即可"><a href="#webserver使用方法：chrome-apps-gt-web-server-gt-choose-folder-勾选-Show-Advanced-Settings下Set-CORS-Headers即可" class="headerlink" title="webserver使用方法：chrome://apps  &gt; web-server &gt; choose folder 勾选 Show Advanced Settings下Set CORS Headers即可"></a>webserver使用方法：chrome://apps  &gt; web-server &gt; choose folder 勾选 Show Advanced Settings下Set CORS Headers即可</h3><h3 id="使用input-type-”file”调用摄像头拍照可以参考camera-API"><a href="#使用input-type-”file”调用摄像头拍照可以参考camera-API" class="headerlink" title="使用input type=”file”调用摄像头拍照可以参考camera API"></a>使用input type=”file”调用摄像头拍照可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/API/Camera" target="_blank" rel="external">camera API</a></h3>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/11/11/HTML5调用手机前置摄像头或后置摄像头拍照，canvas显示,经过Android测试/" class="archive-article-date">
+  	<time datetime="2017-11-11T03:14:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-11-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/camera/">camera</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/11/16/nodejs发起HTTPS，GET，POST请求Face++人脸识别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nodejs发起HTTPS，GET，POST请求Face++人脸识别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/11/代码触发，手动触发touchstart事件，touch事件，click事件，自定义事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">代码触发，手动触发touchstart事件，touch事件，click事件，自定义事件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Xiaozhu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS3/" style="font-size: 15px;">CSS3</a> <a href="/tags/Emmet/" style="font-size: 10px;">Emmet</a> <a href="/tags/RaphaelJS/" style="font-size: 10px;">RaphaelJS,</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Ubuntu-Mysql-OSS/" style="font-size: 10px;">Ubuntu Mysql OSS</a> <a href="/tags/aws-mysql/" style="font-size: 10px;">aws  mysql</a> <a href="/tags/camera/" style="font-size: 10px;">camera</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/cheerio-nodejs-mysql/" style="font-size: 10px;">cheerio nodejs mysql</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/linux-nodejs/" style="font-size: 10px;">linux  nodejs</a> <a href="/tags/livestyle-ubuntu-download/" style="font-size: 10px;">livestyle ubuntu download</a> <a href="/tags/nginx-nodejs/" style="font-size: 15px;">nginx nodejs</a> <a href="/tags/nodejs-https-face/" style="font-size: 10px;">nodejs https face++</a> <a href="/tags/nodemailer-mail/" style="font-size: 10px;">nodemailer mail</a> <a href="/tags/nvm-nodejs/" style="font-size: 10px;">nvm nodejs</a> <a href="/tags/particles-js/" style="font-size: 10px;">particles.js</a> <a href="/tags/sublime-SFTP-linux/" style="font-size: 10px;">sublime SFTP linux</a> <a href="/tags/touchstart/" style="font-size: 10px;">touchstart</a> <a href="/tags/ubuntu-puppeteer/" style="font-size: 10px;">ubuntu puppeteer</a> <a href="/tags/内网穿透工具/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/微信/" style="font-size: 15px;">微信</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.woleigequ.net/">我嘞个趣</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://huijia-sy.com/">慧嘉实业</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">认认真真&lt;br&gt;&lt;br&gt;专注于一件事&lt;br&gt;执着于技术</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
